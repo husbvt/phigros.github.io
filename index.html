@@ -9,2972 +9,2377 @@
         .container { max-width: 1000px; margin: auto; }
         h1 { color: #58a6ff; text-align: center; border-bottom: 1px solid #30363d; padding-bottom: 15px; }
         input#search { width: 100%; padding: 12px; margin: 20px 0; background: #161b22; border: 1px solid #30363d; color: #fff; border-radius: 8px; box-sizing: border-box; }
-        
-        /* 歌曲聚合卡片 */
         .song-card { background: #161b22; border: 1px solid #30363d; margin-bottom: 25px; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
-        .song-header { background: #21262d; padding: 15px; font-weight: bold; border-bottom: 1px solid #30363d; color: #58a6ff; font-size: 1.2em; }
-        
+        .song-header { background: #21262d; padding: 15px; font-weight: bold; border-bottom: 1px solid #30363d; color: #58a6ff; font-size: 1.2em; word-break: break-all; }
         .song-content { display: flex; padding: 15px; gap: 20px; flex-wrap: wrap; }
-        
-        /* 左侧曲绘预览 */
-        .preview-area { flex: 0 0 250px; }
-        .preview-img { width: 100%; border-radius: 8px; border: 1px solid #30363d; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-        
-        /* 右侧资源列表 */
+        .preview-area { flex: 0 0 250px; min-width: 250px; }
+        .preview-img { width: 100%; border-radius: 8px; border: 1px solid #30363d; cursor: pointer; }
         .resource-list { flex: 1; display: flex; flex-direction: column; gap: 8px; min-width: 300px; }
         .file-item { display: flex; justify-content: space-between; align-items: center; background: #0d1117; padding: 10px 15px; border-radius: 6px; border: 1px solid #30363d; }
         .tag { font-size: 0.7em; padding: 2px 8px; border-radius: 4px; color: white; margin-right: 10px; font-weight: bold; }
         .tag-music { background: #1f6feb; }
         .tag-chart { background: #238636; }
-        .btn { color: #58a6ff; text-decoration: none; font-weight: bold; border: 1px solid #30363d; padding: 4px 12px; border-radius: 4px; font-size: 0.9em; }
-        .btn:hover { background: #30363d; }
+        .btn { color: #58a6ff; text-decoration: none; font-weight: bold; border: 1px solid #30363d; padding: 6px 14px; border-radius: 4px; font-size: 0.9em; background: #21262d; }
+        .btn:hover { background: #30363d; border-color: #8b949e; }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Phigros 资源库 (聚合分类版)</h1>
-        <input type="text" id="search" placeholder="输入歌名 ID 搜索..." onkeyup="filter()">
+        <input type="text" id="search" placeholder="输入歌曲 ID 搜索..." onkeyup="filter()">
         <div id="list">
 <div class='song-card' data-name='000AinSophAur.Yumeji'>
 <div class='song-header'>000AinSophAur.Yumeji</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/000AinSophAur.Yumeji.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/000AinSophAur.Yumeji.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='996.李化禹'>
 <div class='song-header'>996.李化禹</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/996.李化禹.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/996.李化禹.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='ATHAZA.LeaF'>
 <div class='song-header'>ATHAZA.LeaF</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ATHAZA.LeaF.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ATHAZA.LeaF.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='AbsoluTedisoRdeR.AcuteDisarray'>
 <div class='song-header'>AbsoluTedisoRdeR.AcuteDisarray</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/AbsoluTedisoRdeR.AcuteDisarray.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/AbsoluTedisoRdeR.AcuteDisarray.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Adastraperaspera.RabbitHouse'>
 <div class='song-header'>Adastraperaspera.RabbitHouse</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Adastraperaspera.RabbitHouse.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Adastraperaspera.RabbitHouse.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='AfterDawn.S9ryne'>
 <div class='song-header'>AfterDawn.S9ryne</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/AfterDawn.S9ryne.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/AfterDawn.S9ryne.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Ajourneytothemoonlight.Yesod'>
 <div class='song-header'>Ajourneytothemoonlight.Yesod</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Ajourneytothemoonlight.Yesod.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Ajourneytothemoonlight.Yesod.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Aleph0.LeaF'>
 <div class='song-header'>Aleph0.LeaF</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Aleph0.LeaF.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Aleph0.LeaF.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Aliceinaxxxxxxxx.Nagiha'>
 <div class='song-header'>Aliceinaxxxxxxxx.Nagiha</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Aliceinaxxxxxxxx.Nagiha.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Aliceinaxxxxxxxx.Nagiha.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='AnotherMe.DAAN'>
 <div class='song-header'>AnotherMe.DAAN</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/AnotherMe.DAAN.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/AnotherMe.DAAN.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='AnotherMe.NeutralMoon'>
 <div class='song-header'>AnotherMe.NeutralMoon</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/AnotherMe.NeutralMoon.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/AnotherMe.NeutralMoon.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='AnotherRound.JustinDai'>
 <div class='song-header'>AnotherRound.JustinDai</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/AnotherRound.JustinDai.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/AnotherRound.JustinDai.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Antithese.Blacklolita'>
 <div class='song-header'>Antithese.Blacklolita</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Antithese.Blacklolita.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Antithese.Blacklolita.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Aphasia.闫东炜'>
 <div class='song-header'>Aphasia.闫东炜</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Aphasia.闫东炜.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Aphasia.闫东炜.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='AphroditesChildshortver.RUQOA'>
 <div class='song-header'>AphroditesChildshortver.RUQOA</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/AphroditesChildshortver.RUQOA.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/AphroditesChildshortver.RUQOA.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Apocalypse.アリスシャッハと魔法の楽団'>
 <div class='song-header'>Apocalypse.アリスシャッハと魔法の楽団</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Apocalypse.アリスシャッハと魔法の楽団.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Apocalypse.アリスシャッハと魔法の楽団.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Apocalyptic.ZClaxxSumaiLight'>
 <div class='song-header'>Apocalyptic.ZClaxxSumaiLight</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Apocalyptic.ZClaxxSumaiLight.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Apocalyptic.ZClaxxSumaiLight.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Archidoxen.Se_IRA'>
 <div class='song-header'>Archidoxen.Se_IRA</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Archidoxen.Se_IRA.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Archidoxen.Se_IRA.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Ark.kanoryo'>
 <div class='song-header'>Ark.kanoryo</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Ark.kanoryo.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Ark.kanoryo.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Arkhei.SeraAmagi'>
 <div class='song-header'>Arkhei.SeraAmagi</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Arkhei.SeraAmagi.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Arkhei.SeraAmagi.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='ArtificialExistence.JunKuroda'>
 <div class='song-header'>ArtificialExistence.JunKuroda</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ArtificialExistence.JunKuroda.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ArtificialExistence.JunKuroda.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='AvataarReincarnationofKalpa.ScarletteakaCrYmson'>
 <div class='song-header'>AvataarReincarnationofKalpa.ScarletteakaCrYmson</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/AvataarReincarnationofKalpa.ScarletteakaCrYmson.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/AvataarReincarnationofKalpa.ScarletteakaCrYmson.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Aventyr.GrandThawRigelTheatre'>
 <div class='song-header'>Aventyr.GrandThawRigelTheatre</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Aventyr.GrandThawRigelTheatre.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Aventyr.GrandThawRigelTheatre.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='BANGINGSTRIKE.DewPleiades'>
 <div class='song-header'>BANGINGSTRIKE.DewPleiades</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/BANGINGSTRIKE.DewPleiades.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/BANGINGSTRIKE.DewPleiades.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='BRAINHACKER.SOMON'>
 <div class='song-header'>BRAINHACKER.SOMON</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/BRAINHACKER.SOMON.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/BRAINHACKER.SOMON.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='BelieveLightfeat果丸哒呦.ScalerMestie果丸哒呦'>
 <div class='song-header'>BelieveLightfeat果丸哒呦.ScalerMestie果丸哒呦</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/BelieveLightfeat果丸哒呦.ScalerMestie果丸哒呦.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/BelieveLightfeat果丸哒呦.ScalerMestie果丸哒呦.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='BetterGraphicAnimation.ルゼ'>
 <div class='song-header'>BetterGraphicAnimation.ルゼ</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/BetterGraphicAnimation.ルゼ.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/BetterGraphicAnimation.ルゼ.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Bitterblossom.imvi'>
 <div class='song-header'>Bitterblossom.imvi</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Bitterblossom.imvi.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Bitterblossom.imvi.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Bloom.targ麻团qwq'>
 <div class='song-header'>Bloom.targ麻团qwq</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Bloom.targ麻团qwq.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Bloom.targ麻团qwq.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='BonusTime.MegaloPaleWhite'>
 <div class='song-header'>BonusTime.MegaloPaleWhite</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/BonusTime.MegaloPaleWhite.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/BonusTime.MegaloPaleWhite.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Bougainvillea.Jade'>
 <div class='song-header'>Bougainvillea.Jade</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Bougainvillea.Jade.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Bougainvillea.Jade.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='BoundedQuietude.FiniteLimitvsSiLiS'>
 <div class='song-header'>BoundedQuietude.FiniteLimitvsSiLiS</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/BoundedQuietude.FiniteLimitvsSiLiS.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/BoundedQuietude.FiniteLimitvsSiLiS.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='BraveNotes.TurquoiseDRIVENota'>
 <div class='song-header'>BraveNotes.TurquoiseDRIVENota</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/BraveNotes.TurquoiseDRIVENota.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/BraveNotes.TurquoiseDRIVENota.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='BreakOver.Kforest'>
 <div class='song-header'>BreakOver.Kforest</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/BreakOver.Kforest.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/BreakOver.Kforest.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='BreakThroughTheBarrier.lixound'>
 <div class='song-header'>BreakThroughTheBarrier.lixound</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/BreakThroughTheBarrier.lixound.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/BreakThroughTheBarrier.lixound.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='BrokenSky.JungoMAX3feat刘佳宜Snow幻影刃shadow'>
 <div class='song-header'>BrokenSky.JungoMAX3feat刘佳宜Snow幻影刃shadow</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/BrokenSky.JungoMAX3feat刘佳宜Snow幻影刃shadow.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/BrokenSky.JungoMAX3feat刘佳宜Snow幻影刃shadow.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Burn.NceS'>
 <div class='song-header'>Burn.NceS</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Burn.NceS.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Burn.NceS.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='CROSSSOUL.HyuNfeatSyepias'>
 <div class='song-header'>CROSSSOUL.HyuNfeatSyepias</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/CROSSSOUL.HyuNfeatSyepias.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/CROSSSOUL.HyuNfeatSyepias.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Cereris.SunsetRayNceS'>
 <div class='song-header'>Cereris.SunsetRayNceS</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Cereris.SunsetRayNceS.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Cereris.SunsetRayNceS.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='CervelleConnexion.SCTL'>
 <div class='song-header'>CervelleConnexion.SCTL</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/CervelleConnexion.SCTL.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/CervelleConnexion.SCTL.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Chronologika.Hundotte'>
 <div class='song-header'>Chronologika.Hundotte</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Chronologika.Hundotte.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Chronologika.Hundotte.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Chronomia.Lime'>
 <div class='song-header'>Chronomia.Lime</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Chronomia.Lime.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Chronomia.Lime.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='ChronosCollapseLaCampanella.SunsetRay'>
 <div class='song-header'>ChronosCollapseLaCampanella.SunsetRay</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ChronosCollapseLaCampanella.SunsetRay.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ChronosCollapseLaCampanella.SunsetRay.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Chronostasis.黒皇帝'>
 <div class='song-header'>Chronostasis.黒皇帝</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Chronostasis.黒皇帝.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Chronostasis.黒皇帝.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Cipher20.TetrajectoryfeatCtymax'>
 <div class='song-header'>Cipher20.TetrajectoryfeatCtymax</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Cipher20.TetrajectoryfeatCtymax.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Cipher20.TetrajectoryfeatCtymax.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='ClassMemories.AntistarfeatCtymax'>
 <div class='song-header'>ClassMemories.AntistarfeatCtymax</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ClassMemories.AntistarfeatCtymax.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ClassMemories.AntistarfeatCtymax.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='ClockParadox.WyvernP'>
 <div class='song-header'>ClockParadox.WyvernP</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ClockParadox.WyvernP.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ClockParadox.WyvernP.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='ColorfulDays.P4koofeatつゆり花鈴'>
 <div class='song-header'>ColorfulDays.P4koofeatつゆり花鈴</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ColorfulDays.P4koofeatつゆり花鈴.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ColorfulDays.P4koofeatつゆり花鈴.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='CometFeat符白牙.CNHKSS'>
 <div class='song-header'>CometFeat符白牙.CNHKSS</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/CometFeat符白牙.CNHKSS.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/CometFeat符白牙.CNHKSS.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='ComputeItWithSomeDevilishAlcoholicSteampunkEngines.かめりあ'>
 <div class='song-header'>ComputeItWithSomeDevilishAlcoholicSteampunkEngines.かめりあ</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ComputeItWithSomeDevilishAlcoholicSteampunkEngines.かめりあ.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ComputeItWithSomeDevilishAlcoholicSteampunkEngines.かめりあ.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Concvssion.Halv'>
 <div class='song-header'>Concvssion.Halv</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Concvssion.Halv.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Concvssion.Halv.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='CraveWave.LandRoot'>
 <div class='song-header'>CraveWave.LandRoot</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/CraveWave.LandRoot.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/CraveWave.LandRoot.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Credits.Frums'>
 <div class='song-header'>Credits.Frums</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Credits.Frums.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Credits.Frums.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Cristalisia.onoken'>
 <div class='song-header'>Cristalisia.onoken</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Cristalisia.onoken.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Cristalisia.onoken.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='CrushBETA.shadow_bling'>
 <div class='song-header'>CrushBETA.shadow_bling</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/CrushBETA.shadow_bling.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/CrushBETA.shadow_bling.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Cthugha.USAO'>
 <div class='song-header'>Cthugha.USAO</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Cthugha.USAO.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Cthugha.USAO.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Cuvism.Fl00tvsHalv'>
 <div class='song-header'>Cuvism.Fl00tvsHalv</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Cuvism.Fl00tvsHalv.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Cuvism.Fl00tvsHalv.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='DESTRUCTION321.Normal1zervsBrokenNerdz'>
 <div class='song-header'>DESTRUCTION321.Normal1zervsBrokenNerdz</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/DESTRUCTION321.Normal1zervsBrokenNerdz.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/DESTRUCTION321.Normal1zervsBrokenNerdz.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='DancewithSilence.かめりあ'>
 <div class='song-header'>DancewithSilence.かめりあ</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/DancewithSilence.かめりあ.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/DancewithSilence.かめりあ.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Dash.小红Akane李祥辉'>
 <div class='song-header'>Dash.小红Akane李祥辉</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Dash.小红Akane李祥辉.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Dash.小红Akane李祥辉.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='DataErr0r.Cosmograph'>
 <div class='song-header'>DataErr0r.Cosmograph</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/DataErr0r.Cosmograph.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/DataErr0r.Cosmograph.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='DeadSoul.SoundSouler'>
 <div class='song-header'>DeadSoul.SoundSouler</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/DeadSoul.SoundSouler.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/DeadSoul.SoundSouler.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Demiurge.Rabpit'>
 <div class='song-header'>Demiurge.Rabpit</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Demiurge.Rabpit.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Demiurge.Rabpit.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Demonkin.ForgedReigns'>
 <div class='song-header'>Demonkin.ForgedReigns</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Demonkin.ForgedReigns.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Demonkin.ForgedReigns.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='DerRichter.Ωμεγα'>
 <div class='song-header'>DerRichter.Ωμεγα</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/DerRichter.Ωμεγα.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/DerRichter.Ωμεγα.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='DevIAtiOnshortver.polysha'>
 <div class='song-header'>DevIAtiOnshortver.polysha</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/DevIAtiOnshortver.polysha.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/DevIAtiOnshortver.polysha.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Devotion.Connexio'>
 <div class='song-header'>Devotion.Connexio</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Devotion.Connexio.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Devotion.Connexio.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='DiamondDust.MasahiroGodspeedAoki'>
 <div class='song-header'>DiamondDust.MasahiroGodspeedAoki</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/DiamondDust.MasahiroGodspeedAoki.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/DiamondDust.MasahiroGodspeedAoki.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='DiamondEyes.SYNTHETIC'>
 <div class='song-header'>DiamondEyes.SYNTHETIC</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/DiamondEyes.SYNTHETIC.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/DiamondEyes.SYNTHETIC.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Disorder.HyuNfeatYURI'>
 <div class='song-header'>Disorder.HyuNfeatYURI</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Disorder.HyuNfeatYURI.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Disorder.HyuNfeatYURI.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='DistortedFate.Sakuzyo'>
 <div class='song-header'>DistortedFate.Sakuzyo</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/DistortedFate.Sakuzyo.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/DistortedFate.Sakuzyo.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Dlyrotz.Likey'>
 <div class='song-header'>Dlyrotz.Likey</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Dlyrotz.Likey.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Dlyrotz.Likey.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='DontNeverAround.HAMA'>
 <div class='song-header'>DontNeverAround.HAMA</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/DontNeverAround.HAMA.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/DontNeverAround.HAMA.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Doppelganger.LeaF'>
 <div class='song-header'>Doppelganger.LeaF</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Doppelganger.LeaF.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Doppelganger.LeaF.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Dreamland.z1onkyrrin'>
 <div class='song-header'>Dreamland.z1onkyrrin</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Dreamland.z1onkyrrin.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Dreamland.z1onkyrrin.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='DropIt.Asuka'>
 <div class='song-header'>DropIt.Asuka</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/DropIt.Asuka.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/DropIt.Asuka.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='ENERGYSYNERGYMATRIX.Tanchiky'>
 <div class='song-header'>ENERGYSYNERGYMATRIX.Tanchiky</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ENERGYSYNERGYMATRIX.Tanchiky.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ENERGYSYNERGYMATRIX.Tanchiky.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='ERABYECONNEC10N.かめりあ'>
 <div class='song-header'>ERABYECONNEC10N.かめりあ</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ERABYECONNEC10N.かめりあ.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ERABYECONNEC10N.かめりあ.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='ElCondorPasaPhigrosEdit.PlasticFruits'>
 <div class='song-header'>ElCondorPasaPhigrosEdit.PlasticFruits</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ElCondorPasaPhigrosEdit.PlasticFruits.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ElCondorPasaPhigrosEdit.PlasticFruits.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Electron.ElousFZ'>
 <div class='song-header'>Electron.ElousFZ</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Electron.ElousFZ.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Electron.ElousFZ.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Eltaw.Fl00t'>
 <div class='song-header'>Eltaw.Fl00t</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Eltaw.Fl00t.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Eltaw.Fl00t.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Elúltimobaile.Θ'>
 <div class='song-header'>Elúltimobaile.Θ</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Elúltimobaile.Θ.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Elúltimobaile.Θ.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='EndMe.ZxNXasDelaina'>
 <div class='song-header'>EndMe.ZxNXasDelaina</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/EndMe.ZxNXasDelaina.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/EndMe.ZxNXasDelaina.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='EnginexStartmelodymix.CrossingSound'>
 <div class='song-header'>EnginexStartmelodymix.CrossingSound</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/EnginexStartmelodymix.CrossingSound.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/EnginexStartmelodymix.CrossingSound.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='EradicationCatastrophe.NceS'>
 <div class='song-header'>EradicationCatastrophe.NceS</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/EradicationCatastrophe.NceS.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/EradicationCatastrophe.NceS.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='EternalSnow.AbyssIdols'>
 <div class='song-header'>EternalSnow.AbyssIdols</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/EternalSnow.AbyssIdols.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/EternalSnow.AbyssIdols.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='FULiAUTOBUSTER.MYUKKE'>
 <div class='song-header'>FULiAUTOBUSTER.MYUKKE</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/FULiAUTOBUSTER.MYUKKE.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/FULiAUTOBUSTER.MYUKKE.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='FULiAUTOSHOOTER.MYUKKE'>
 <div class='song-header'>FULiAUTOSHOOTER.MYUKKE</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/FULiAUTOSHOOTER.MYUKKE.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/FULiAUTOSHOOTER.MYUKKE.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Feast远东之宴.茶鸣拾贰律'>
 <div class='song-header'>Feast远东之宴.茶鸣拾贰律</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Feast远东之宴.茶鸣拾贰律.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Feast远东之宴.茶鸣拾贰律.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='FinalStep.Lime'>
 <div class='song-header'>FinalStep.Lime</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/FinalStep.Lime.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/FinalStep.Lime.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='FindMe.Kforest'>
 <div class='song-header'>FindMe.Kforest</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/FindMe.Kforest.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/FindMe.Kforest.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='FixationsTowardtheStars.Foodbot'>
 <div class='song-header'>FixationsTowardtheStars.Foodbot</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/FixationsTowardtheStars.Foodbot.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/FixationsTowardtheStars.Foodbot.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='FlutterEcho.Cansol'>
 <div class='song-header'>FlutterEcho.Cansol</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/FlutterEcho.Cansol.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/FlutterEcho.Cansol.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='FracturedAngel.DJRaisei'>
 <div class='song-header'>FracturedAngel.DJRaisei</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/FracturedAngel.DJRaisei.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/FracturedAngel.DJRaisei.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='FreakyUndulationsNobleKnightsofTune.JehezukielKURORAK'>
 <div class='song-header'>FreakyUndulationsNobleKnightsofTune.JehezukielKURORAK</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/FreakyUndulationsNobleKnightsofTune.JehezukielKURORAK.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/FreakyUndulationsNobleKnightsofTune.JehezukielKURORAK.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='FrozenHeart.A39沙包P'>
 <div class='song-header'>FrozenHeart.A39沙包P</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/FrozenHeart.A39沙包P.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/FrozenHeart.A39沙包P.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='FutureMind.RayNauticaRekuMochizuki'>
 <div class='song-header'>FutureMind.RayNauticaRekuMochizuki</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/FutureMind.RayNauticaRekuMochizuki.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/FutureMind.RayNauticaRekuMochizuki.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='GOODBOUNCE.EBIMAYO'>
 <div class='song-header'>GOODBOUNCE.EBIMAYO</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/GOODBOUNCE.EBIMAYO.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/GOODBOUNCE.EBIMAYO.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='GOODFORTUNE.EBIMAYO'>
 <div class='song-header'>GOODFORTUNE.EBIMAYO</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/GOODFORTUNE.EBIMAYO.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/GOODFORTUNE.EBIMAYO.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='GOODRAGE.EBIMAYO'>
 <div class='song-header'>GOODRAGE.EBIMAYO</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/GOODRAGE.EBIMAYO.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/GOODRAGE.EBIMAYO.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='GOODTEK.EBIMAYO'>
 <div class='song-header'>GOODTEK.EBIMAYO</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/GOODTEK.EBIMAYO.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/GOODTEK.EBIMAYO.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='GOODWORLD.EBIMAYO'>
 <div class='song-header'>GOODWORLD.EBIMAYO</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/GOODWORLD.EBIMAYO.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/GOODWORLD.EBIMAYO.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='GVNGlitterVomitusandNeon.SaltySaltUnfold33'>
 <div class='song-header'>GVNGlitterVomitusandNeon.SaltySaltUnfold33</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/GVNGlitterVomitusandNeon.SaltySaltUnfold33.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/GVNGlitterVomitusandNeon.SaltySaltUnfold33.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='GetBack.CAP3'>
 <div class='song-header'>GetBack.CAP3</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/GetBack.CAP3.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/GetBack.CAP3.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='GetReady.iF'>
 <div class='song-header'>GetReady.iF</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/GetReady.iF.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/GetReady.iF.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Glaciaxion.SunsetRay'>
 <div class='song-header'>Glaciaxion.SunsetRay</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Glaciaxion.SunsetRay.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Glaciaxion.SunsetRay.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Grimheart.Puru'>
 <div class='song-header'>Grimheart.Puru</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Grimheart.Puru.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Grimheart.Puru.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='HAZARD.Limpid'>
 <div class='song-header'>HAZARD.Limpid</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/HAZARD.Limpid.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/HAZARD.Limpid.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='HardcoreKwaya.EnFr'>
 <div class='song-header'>HardcoreKwaya.EnFr</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/HardcoreKwaya.EnFr.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/HardcoreKwaya.EnFr.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Helios.NOABotaNya'>
 <div class='song-header'>Helios.NOABotaNya</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Helios.NOABotaNya.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Helios.NOABotaNya.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='HorizonBlue.NothingButRequiemfeatAikapinChiyoko'>
 <div class='song-header'>HorizonBlue.NothingButRequiemfeatAikapinChiyoko</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/HorizonBlue.NothingButRequiemfeatAikapinChiyoko.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/HorizonBlue.NothingButRequiemfeatAikapinChiyoko.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='HumaN.SOTUI'>
 <div class='song-header'>HumaN.SOTUI</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/HumaN.SOTUI.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/HumaN.SOTUI.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Hydra.JamesLandinoXAkiraComplex'>
 <div class='song-header'>Hydra.JamesLandinoXAkiraComplex</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Hydra.JamesLandinoXAkiraComplex.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Hydra.JamesLandinoXAkiraComplex.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='IMustSayNo.TangJuan'>
 <div class='song-header'>IMustSayNo.TangJuan</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/IMustSayNo.TangJuan.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/IMustSayNo.TangJuan.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='INFiNiTEENERZYOverdoze.RekuMochizuki'>
 <div class='song-header'>INFiNiTEENERZYOverdoze.RekuMochizuki</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/INFiNiTEENERZYOverdoze.RekuMochizuki.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/INFiNiTEENERZYOverdoze.RekuMochizuki.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Igallta.SeURa'>
 <div class='song-header'>Igallta.SeURa</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Igallta.SeURa.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Igallta.SeURa.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='IndelibleScar.Noah'>
 <div class='song-header'>IndelibleScar.Noah</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/IndelibleScar.Noah.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/IndelibleScar.Noah.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='InfinityHeaven.HyuN'>
 <div class='song-header'>InfinityHeaven.HyuN</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/InfinityHeaven.HyuN.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/InfinityHeaven.HyuN.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Initialize.iF'>
 <div class='song-header'>Initialize.iF</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Initialize.iF.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Initialize.iF.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='InvertedWorld.ARForest'>
 <div class='song-header'>InvertedWorld.ARForest</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/InvertedWorld.ARForest.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/InvertedWorld.ARForest.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='JourneywithYou.Iris'>
 <div class='song-header'>JourneywithYou.Iris</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/JourneywithYou.Iris.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/JourneywithYou.Iris.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='JunXionBetweenLifeAndDeathVIPMix.1N6Fs'>
 <div class='song-header'>JunXionBetweenLifeAndDeathVIPMix.1N6Fs</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/JunXionBetweenLifeAndDeathVIPMix.1N6Fs.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/JunXionBetweenLifeAndDeathVIPMix.1N6Fs.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='KIZUNAResolution.TAG'>
 <div class='song-header'>KIZUNAResolution.TAG</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/KIZUNAResolution.TAG.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/KIZUNAResolution.TAG.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='KMoeVIP.ZxNX'>
 <div class='song-header'>KMoeVIP.ZxNX</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/KMoeVIP.ZxNX.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/KMoeVIP.ZxNX.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Kerberos.Zris'>
 <div class='song-header'>Kerberos.Zris</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Kerberos.Zris.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Kerberos.Zris.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Khalid.Dolphin'>
 <div class='song-header'>Khalid.Dolphin</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Khalid.Dolphin.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Khalid.Dolphin.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='KhronostasisKatharsis.Halv'>
 <div class='song-header'>KhronostasisKatharsis.Halv</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/KhronostasisKatharsis.Halv.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/KhronostasisKatharsis.Halv.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='KirakiraNoelStory.RekuMochizuki'>
 <div class='song-header'>KirakiraNoelStory.RekuMochizuki</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/KirakiraNoelStory.RekuMochizuki.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/KirakiraNoelStory.RekuMochizuki.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Komplexe.雄之助featSennzai'>
 <div class='song-header'>Komplexe.雄之助featSennzai</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Komplexe.雄之助featSennzai.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Komplexe.雄之助featSennzai.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='LabyrinthinKowloonWalledWorld.かめりあ'>
 <div class='song-header'>LabyrinthinKowloonWalledWorld.かめりあ</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/LabyrinthinKowloonWalledWorld.かめりあ.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/LabyrinthinKowloonWalledWorld.かめりあ.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='LeaveAllBehind.rider'>
 <div class='song-header'>LeaveAllBehind.rider</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/LeaveAllBehind.rider.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/LeaveAllBehind.rider.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Letempsperdu.Daison'>
 <div class='song-header'>Letempsperdu.Daison</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Letempsperdu.Daison.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Letempsperdu.Daison.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Locomotive.K'>
 <div class='song-header'>Locomotive.K</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Locomotive.K.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Locomotive.K.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Luminescence.米虾Fomiki初云CLoudie'>
 <div class='song-header'>Luminescence.米虾Fomiki初云CLoudie</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Luminescence.米虾Fomiki初云CLoudie.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Luminescence.米虾Fomiki初云CLoudie.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Luminescent.Daison'>
 <div class='song-header'>Luminescent.Daison</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Luminescent.Daison.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Luminescent.Daison.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='LuminousEntitiesLostHeart.NormalMfeatUsagiDenki'>
 <div class='song-header'>LuminousEntitiesLostHeart.NormalMfeatUsagiDenki</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/LuminousEntitiesLostHeart.NormalMfeatUsagiDenki.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/LuminousEntitiesLostHeart.NormalMfeatUsagiDenki.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Lyrith迷宮リリス.ユメミド'>
 <div class='song-header'>Lyrith迷宮リリス.ユメミド</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Lyrith迷宮リリス.ユメミド.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Lyrith迷宮リリス.ユメミド.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='MARENOL.LeaF'>
 <div class='song-header'>MARENOL.LeaF</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/MARENOL.LeaF.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/MARENOL.LeaF.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='MOBILYS.Dachs'>
 <div class='song-header'>MOBILYS.Dachs</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/MOBILYS.Dachs.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/MOBILYS.Dachs.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='MagentaPotion.EmoCo'>
 <div class='song-header'>MagentaPotion.EmoCo</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/MagentaPotion.EmoCo.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/MagentaPotion.EmoCo.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='ManifoldHypothesis.cybermisofeattigerlily'>
 <div class='song-header'>ManifoldHypothesis.cybermisofeattigerlily</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ManifoldHypothesis.cybermisofeattigerlily.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ManifoldHypothesis.cybermisofeattigerlily.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='MiracleForestVIPMix.Rinthlive'>
 <div class='song-header'>MiracleForestVIPMix.Rinthlive</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/MiracleForestVIPMix.Rinthlive.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/MiracleForestVIPMix.Rinthlive.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='NOONEYESMAN.MYUKKE'>
 <div class='song-header'>NOONEYESMAN.MYUKKE</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/NOONEYESMAN.MYUKKE.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/NOONEYESMAN.MYUKKE.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='NOx.Juggernaut'>
 <div class='song-header'>NOx.Juggernaut</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/NOx.Juggernaut.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/NOx.Juggernaut.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='NYA.FLuoRiTe姜米條'>
 <div class='song-header'>NYA.FLuoRiTe姜米條</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/NYA.FLuoRiTe姜米條.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/NYA.FLuoRiTe姜米條.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='NextTime.SaMZIng'>
 <div class='song-header'>NextTime.SaMZIng</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/NextTime.SaMZIng.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/NextTime.SaMZIng.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Nhelv.Silentroom'>
 <div class='song-header'>Nhelv.Silentroom</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Nhelv.Silentroom.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Nhelv.Silentroom.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='NickofTime.P4koo'>
 <div class='song-header'>NickofTime.P4koo</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/NickofTime.P4koo.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/NickofTime.P4koo.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='NightTheater.わかどり'>
 <div class='song-header'>NightTheater.わかどり</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/NightTheater.わかどり.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/NightTheater.わかどり.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='NonMelodicRagezMUGEdit.Normal1zer'>
 <div class='song-header'>NonMelodicRagezMUGEdit.Normal1zer</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/NonMelodicRagezMUGEdit.Normal1zer.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/NonMelodicRagezMUGEdit.Normal1zer.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='NowIsTheTimeDoIt.RoyMikelate'>
 <div class='song-header'>NowIsTheTimeDoIt.RoyMikelate</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/NowIsTheTimeDoIt.RoyMikelate.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/NowIsTheTimeDoIt.RoyMikelate.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='OnAndOn.ETIAfeatJenga'>
 <div class='song-header'>OnAndOn.ETIAfeatJenga</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/OnAndOn.ETIAfeatJenga.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/OnAndOn.ETIAfeatJenga.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Originally.SNKSMizku'>
 <div class='song-header'>Originally.SNKSMizku</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Originally.SNKSMizku.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Originally.SNKSMizku.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Orthodox.tokiwa'>
 <div class='song-header'>Orthodox.tokiwa</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Orthodox.tokiwa.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Orthodox.tokiwa.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='PANICPARADISE.DJSHIONY'>
 <div class='song-header'>PANICPARADISE.DJSHIONY</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/PANICPARADISE.DJSHIONY.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/PANICPARADISE.DJSHIONY.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='PRAGMATISMRESURRECTION.Laur'>
 <div class='song-header'>PRAGMATISMRESURRECTION.Laur</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/PRAGMATISMRESURRECTION.Laur.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/PRAGMATISMRESURRECTION.Laur.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='PRAW.Bluewind'>
 <div class='song-header'>PRAW.Bluewind</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/PRAW.Bluewind.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/PRAW.Bluewind.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Palescreen.WyvernPfeatMadol'>
 <div class='song-header'>Palescreen.WyvernPfeatMadol</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Palescreen.WyvernPfeatMadol.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Palescreen.WyvernPfeatMadol.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='ParallelRetrogressionGameVer.Tetrajectory'>
 <div class='song-header'>ParallelRetrogressionGameVer.Tetrajectory</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ParallelRetrogressionGameVer.Tetrajectory.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ParallelRetrogressionGameVer.Tetrajectory.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='PixelRebelz.Normal1zer'>
 <div class='song-header'>PixelRebelz.Normal1zer</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/PixelRebelz.Normal1zer.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/PixelRebelz.Normal1zer.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='PoisonANDORAffection.LeaF'>
 <div class='song-header'>PoisonANDORAffection.LeaF</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/PoisonANDORAffection.LeaF.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/PoisonANDORAffection.LeaF.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Pontdessouvenirs.VeetaCrushvsitsufeatitsu'>
 <div class='song-header'>Pontdessouvenirs.VeetaCrushvsitsufeatitsu</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Pontdessouvenirs.VeetaCrushvsitsufeatitsu.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Pontdessouvenirs.VeetaCrushvsitsufeatitsu.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Poseidon.1112vsStar'>
 <div class='song-header'>Poseidon.1112vsStar</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Poseidon.1112vsStar.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Poseidon.1112vsStar.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Protoflicker.Silentroom'>
 <div class='song-header'>Protoflicker.Silentroom</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Protoflicker.Silentroom.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Protoflicker.Silentroom.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='QZKagoRequiem.tpazolite'>
 <div class='song-header'>QZKagoRequiem.tpazolite</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/QZKagoRequiem.tpazolite.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/QZKagoRequiem.tpazolite.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='QuantumHyperspace.D_AAN'>
 <div class='song-header'>QuantumHyperspace.D_AAN</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/QuantumHyperspace.D_AAN.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/QuantumHyperspace.D_AAN.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='RESSiSTANCE.ぐるたみん'>
 <div class='song-header'>RESSiSTANCE.ぐるたみん</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/RESSiSTANCE.ぐるたみん.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/RESSiSTANCE.ぐるたみん.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='RIPPER.Friedwav'>
 <div class='song-header'>RIPPER.Friedwav</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/RIPPER.Friedwav.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/RIPPER.Friedwav.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Radiance.Nhato'>
 <div class='song-header'>Radiance.Nhato</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Radiance.Nhato.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Radiance.Nhato.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='RainyHeart.BelieverInYou阿卡姆巫师'>
 <div class='song-header'>RainyHeart.BelieverInYou阿卡姆巫师</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/RainyHeart.BelieverInYou阿卡姆巫师.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/RainyHeart.BelieverInYou阿卡姆巫师.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='RainySeason.AbyssIdols'>
 <div class='song-header'>RainySeason.AbyssIdols</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/RainySeason.AbyssIdols.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/RainySeason.AbyssIdols.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Ramification.rareguyReina'>
 <div class='song-header'>Ramification.rareguyReina</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Ramification.rareguyReina.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Ramification.rareguyReina.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Random.SobremSilentroom'>
 <div class='song-header'>Random.SobremSilentroom</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Random.SobremSilentroom.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Random.SobremSilentroom.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='ReEndofaDream.umavsモリモリあつし'>
 <div class='song-header'>ReEndofaDream.umavsモリモリあつし</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ReEndofaDream.umavsモリモリあつし.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ReEndofaDream.umavsモリモリあつし.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Re_NascencePsystyleVer.Rinth_live'>
 <div class='song-header'>Re_NascencePsystyleVer.Rinth_live</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Re_NascencePsystyleVer.Rinth_live.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Re_NascencePsystyleVer.Rinth_live.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Realms.HinkikAHimitsu'>
 <div class='song-header'>Realms.HinkikAHimitsu</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Realms.HinkikAHimitsu.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Realms.HinkikAHimitsu.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Rebirth.ああああ'>
 <div class='song-header'>Rebirth.ああああ</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Rebirth.ああああ.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Rebirth.ああああ.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Reimei.影虎'>
 <div class='song-header'>Reimei.影虎</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Reimei.影虎.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Reimei.影虎.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Resolver.Gomadare'>
 <div class='song-header'>Resolver.Gomadare</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Resolver.Gomadare.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Resolver.Gomadare.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Retribution.nmyKryexe'>
 <div class='song-header'>Retribution.nmyKryexe</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Retribution.nmyKryexe.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Retribution.nmyKryexe.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='RetributionCycleofRedemption.ArdolfvsDaily天利'>
 <div class='song-header'>RetributionCycleofRedemption.ArdolfvsDaily天利</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/RetributionCycleofRedemption.ArdolfvsDaily天利.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/RetributionCycleofRedemption.ArdolfvsDaily天利.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Rrharil.TeamGrimoire'>
 <div class='song-header'>Rrharil.TeamGrimoire</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Rrharil.TeamGrimoire.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Rrharil.TeamGrimoire.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='RubbishSorting.CtymaxvsNceS'>
 <div class='song-header'>RubbishSorting.CtymaxvsNceS</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/RubbishSorting.CtymaxvsNceS.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/RubbishSorting.CtymaxvsNceS.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='SATELLITE.かめりあ'>
 <div class='song-header'>SATELLITE.かめりあ</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/SATELLITE.かめりあ.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/SATELLITE.かめりあ.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='SIGMA.Kryexe'>
 <div class='song-header'>SIGMA.Kryexe</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/SIGMA.Kryexe.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/SIGMA.Kryexe.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='SURREALISM.Itsuki'>
 <div class='song-header'>SURREALISM.Itsuki</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/SURREALISM.Itsuki.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/SURREALISM.Itsuki.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Schadenfreude.ZxNX'>
 <div class='song-header'>Schadenfreude.ZxNX</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Schadenfreude.ZxNX.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Schadenfreude.ZxNX.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='SecretIllumination.Yooh'>
 <div class='song-header'>SecretIllumination.Yooh</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/SecretIllumination.Yooh.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/SecretIllumination.Yooh.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Sein.朔Apo11oprogramvsお月さま交響曲ftkuroa荒巻'>
 <div class='song-header'>Sein.朔Apo11oprogramvsお月さま交響曲ftkuroa荒巻</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Sein.朔Apo11oprogramvsお月さま交響曲ftkuroa荒巻.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Sein.朔Apo11oprogramvsお月さま交響曲ftkuroa荒巻.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Shadow.SumaiLightvs姜米條'>
 <div class='song-header'>Shadow.SumaiLightvs姜米條</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Shadow.SumaiLightvs姜米條.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Shadow.SumaiLightvs姜米條.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Shelter.MeatyRabbitNceS'>
 <div class='song-header'>Shelter.MeatyRabbitNceS</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Shelter.MeatyRabbitNceS.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Shelter.MeatyRabbitNceS.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='ShineAfter.ADeanJocularACE'>
 <div class='song-header'>ShineAfter.ADeanJocularACE</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ShineAfter.ADeanJocularACE.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ShineAfter.ADeanJocularACE.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='SilenceisGoldenSpeechisGolden.NIWASHI'>
 <div class='song-header'>SilenceisGoldenSpeechisGolden.NIWASHI</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/SilenceisGoldenSpeechisGolden.NIWASHI.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/SilenceisGoldenSpeechisGolden.NIWASHI.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='SnowDesert.WyvernP'>
 <div class='song-header'>SnowDesert.WyvernP</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/SnowDesert.WyvernP.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/SnowDesert.WyvernP.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='SolaggyfeatUzumaki.ShrimpCatsはぁち後藤涼輔'>
 <div class='song-header'>SolaggyfeatUzumaki.ShrimpCatsはぁち後藤涼輔</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/SolaggyfeatUzumaki.ShrimpCatsはぁち後藤涼輔.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/SolaggyfeatUzumaki.ShrimpCatsはぁち後藤涼輔.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='SparkleNewLife.rider'>
 <div class='song-header'>SparkleNewLife.rider</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/SparkleNewLife.rider.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/SparkleNewLife.rider.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Spasmodic.姜米條颶風元力上人'>
 <div class='song-header'>Spasmodic.姜米條颶風元力上人</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Spasmodic.姜米條颶風元力上人.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Spasmodic.姜米條颶風元力上人.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='SpeedUp.DarTokki'>
 <div class='song-header'>SpeedUp.DarTokki</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/SpeedUp.DarTokki.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/SpeedUp.DarTokki.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Spotlight.Ardolf'>
 <div class='song-header'>Spotlight.Ardolf</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Spotlight.Ardolf.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Spotlight.Ardolf.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='StardustRAY.kanonevsBlackY'>
 <div class='song-header'>StardustRAY.kanonevsBlackY</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/StardustRAY.kanonevsBlackY.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/StardustRAY.kanonevsBlackY.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Starduster.Quree'>
 <div class='song-header'>Starduster.Quree</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Starduster.Quree.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Starduster.Quree.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Stasis.Maozon'>
 <div class='song-header'>Stasis.Maozon</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Stasis.Maozon.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Stasis.Maozon.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='SultanRage.MonstDeath'>
 <div class='song-header'>SultanRage.MonstDeath</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/SultanRage.MonstDeath.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/SultanRage.MonstDeath.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='SwingSkipDrop.ミハイル'>
 <div class='song-header'>SwingSkipDrop.ミハイル</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/SwingSkipDrop.ミハイル.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/SwingSkipDrop.ミハイル.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='TECHNOPOLIS2085.PRASTIKDANCEFLOOR'>
 <div class='song-header'>TECHNOPOLIS2085.PRASTIKDANCEFLOOR</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/TECHNOPOLIS2085.PRASTIKDANCEFLOOR.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/TECHNOPOLIS2085.PRASTIKDANCEFLOOR.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='TemporalShifting.LureRabbitVC'>
 <div class='song-header'>TemporalShifting.LureRabbitVC</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/TemporalShifting.LureRabbitVC.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/TemporalShifting.LureRabbitVC.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='TheChariotREVIIVAL.Attoclef'>
 <div class='song-header'>TheChariotREVIIVAL.Attoclef</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/TheChariotREVIIVAL.Attoclef.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/TheChariotREVIIVAL.Attoclef.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='TheMountainEater.PaulBazooka'>
 <div class='song-header'>TheMountainEater.PaulBazooka</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/TheMountainEater.PaulBazooka.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/TheMountainEater.PaulBazooka.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='TheWholeRest.KIVΛ'>
 <div class='song-header'>TheWholeRest.KIVΛ</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/TheWholeRest.KIVΛ.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/TheWholeRest.KIVΛ.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Thrashforce.KAHvsE0ri4'>
 <div class='song-header'>Thrashforce.KAHvsE0ri4</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Thrashforce.KAHvsE0ri4.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Thrashforce.KAHvsE0ri4.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='TimetoNightSkyfeatLeeYuJin.HyuNKLYDIX'>
 <div class='song-header'>TimetoNightSkyfeatLeeYuJin.HyuNKLYDIX</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/TimetoNightSkyfeatLeeYuJin.HyuNKLYDIX.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/TimetoNightSkyfeatLeeYuJin.HyuNKLYDIX.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Trane.MALVA'>
 <div class='song-header'>Trane.MALVA</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Trane.MALVA.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Trane.MALVA.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='TriumphRegret.typeMARS'>
 <div class='song-header'>TriumphRegret.typeMARS</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/TriumphRegret.typeMARS.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/TriumphRegret.typeMARS.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Trojan.litmus'>
 <div class='song-header'>Trojan.litmus</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Trojan.litmus.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Trojan.litmus.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='UnorthodoxThoughts.Joulez'>
 <div class='song-header'>UnorthodoxThoughts.Joulez</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/UnorthodoxThoughts.Joulez.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/UnorthodoxThoughts.Joulez.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Upshift.Iriss-Frantzz'>
 <div class='song-header'>Upshift.Iriss-Frantzz</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Upshift.Iriss-Frantzz.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Upshift.Iriss-Frantzz.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='WATER.A39沙包P'>
 <div class='song-header'>WATER.A39沙包P</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/WATER.A39沙包P.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/WATER.A39沙包P.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Wavetapper.Frums'>
 <div class='song-header'>Wavetapper.Frums</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Wavetapper.Frums.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Wavetapper.Frums.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Wintercube.CtymaxfeatNceS'>
 <div class='song-header'>Wintercube.CtymaxfeatNceS</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Wintercube.CtymaxfeatNceS.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Wintercube.CtymaxfeatNceS.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='WithYou.Cashew'>
 <div class='song-header'>WithYou.Cashew</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/WithYou.Cashew.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/WithYou.Cashew.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='XING.ginkiha'>
 <div class='song-header'>XING.ginkiha</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/XING.ginkiha.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/XING.ginkiha.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Xenolith.Tatsh'>
 <div class='song-header'>Xenolith.Tatsh</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Xenolith.Tatsh.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Xenolith.Tatsh.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='Xepion.Acotto'>
 <div class='song-header'>Xepion.Acotto</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Xepion.Acotto.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/Xepion.Acotto.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='YouaretheMiserable.tpazolite'>
 <div class='song-header'>YouaretheMiserable.tpazolite</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/YouaretheMiserable.tpazolite.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/YouaretheMiserable.tpazolite.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='atruthseekerCommunicationwithUtopiawillbelost.kuro'>
 <div class='song-header'>atruthseekerCommunicationwithUtopiawillbelost.kuro</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/atruthseekerCommunicationwithUtopiawillbelost.kuro.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/atruthseekerCommunicationwithUtopiawillbelost.kuro.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='bye.DingerBox'>
 <div class='song-header'>bye.DingerBox</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/bye.DingerBox.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/bye.DingerBox.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='cryout.JuE'>
 <div class='song-header'>cryout.JuE</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/cryout.JuE.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/cryout.JuE.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='csqn.Aoi'>
 <div class='song-header'>csqn.Aoi</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/csqn.Aoi.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/csqn.Aoi.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='dBdoll.YUESTEVENuen'>
 <div class='song-header'>dBdoll.YUESTEVENuen</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/dBdoll.YUESTEVENuen.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/dBdoll.YUESTEVENuen.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='energytrixxx.KAH'>
 <div class='song-header'>energytrixxx.KAH</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/energytrixxx.KAH.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/energytrixxx.KAH.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='iLArtifact.Link0'>
 <div class='song-header'>iLArtifact.Link0</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/iLArtifact.Link0.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/iLArtifact.Link0.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='inferior.姜米條'>
 <div class='song-header'>inferior.姜米條</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/inferior.姜米條.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/inferior.姜米條.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='lifeflashesbeforeweebeyes.BilliumMoto'>
 <div class='song-header'>lifeflashesbeforeweebeyes.BilliumMoto</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/lifeflashesbeforeweebeyes.BilliumMoto.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/lifeflashesbeforeweebeyes.BilliumMoto.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='mechanted.rareguy'>
 <div class='song-header'>mechanted.rareguy</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/mechanted.rareguy.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/mechanted.rareguy.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='microwav.dandeless'>
 <div class='song-header'>microwav.dandeless</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/microwav.dandeless.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/microwav.dandeless.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='modulus.PTB10'>
 <div class='song-header'>modulus.PTB10</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/modulus.PTB10.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/modulus.PTB10.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='opia.rN'>
 <div class='song-header'>opia.rN</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/opia.rN.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/opia.rN.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='parsey.siqlo'>
 <div class='song-header'>parsey.siqlo</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/parsey.siqlo.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/parsey.siqlo.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='slips.rintarosoma'>
 <div class='song-header'>slips.rintarosoma</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/slips.rintarosoma.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/slips.rintarosoma.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='valorstarcross.LundyvsWyvren'>
 <div class='song-header'>valorstarcross.LundyvsWyvren</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/valorstarcross.LundyvsWyvren.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/valorstarcross.LundyvsWyvren.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='volcanic.DETROakaルゼ'>
 <div class='song-header'>volcanic.DETROakaルゼ</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/volcanic.DETROakaルゼ.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/volcanic.DETROakaルゼ.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='いざ参ります.Uskefeat棗いつき'>
 <div class='song-header'>いざ参ります.Uskefeat棗いつき</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/いざ参ります.Uskefeat棗いつき.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/いざ参ります.Uskefeat棗いつき.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='ぱぴぷぴぷぴぱ.ころねぽちWith立秋'>
 <div class='song-header'>ぱぴぷぴぷぴぱ.ころねぽちWith立秋</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ぱぴぷぴぷぴぱ.ころねぽちWith立秋.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ぱぴぷぴぷぴぱ.ころねぽちWith立秋.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='もぺもぺ.LeaF'>
 <div class='song-header'>もぺもぺ.LeaF</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/もぺもぺ.LeaF.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/もぺもぺ.LeaF.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='アンビバレンス.すりぃ相沢'>
 <div class='song-header'>アンビバレンス.すりぃ相沢</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/アンビバレンス.すりぃ相沢.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/アンビバレンス.すりぃ相沢.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='インフェルノシティ.Ponchifeatはぁち'>
 <div class='song-header'>インフェルノシティ.Ponchifeatはぁち</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/インフェルノシティ.Ponchifeatはぁち.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/インフェルノシティ.Ponchifeatはぁち.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='インマイマインド.レシオP'>
 <div class='song-header'>インマイマインド.レシオP</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/インマイマインド.レシオP.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/インマイマインド.レシオP.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='ジングルベルJingleBell.A39沙包P'>
 <div class='song-header'>ジングルベルJingleBell.A39沙包P</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ジングルベルJingleBell.A39沙包P.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ジングルベルJingleBell.A39沙包P.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='ストレイソウルアラウンド.みーに'>
 <div class='song-header'>ストレイソウルアラウンド.みーに</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ストレイソウルアラウンド.みーに.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ストレイソウルアラウンド.みーに.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='ニライカナイNiraicA_naiMix.roopfromSTR'>
 <div class='song-header'>ニライカナイNiraicA_naiMix.roopfromSTR</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ニライカナイNiraicA_naiMix.roopfromSTR.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/ニライカナイNiraicA_naiMix.roopfromSTR.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='万吨匿名信.闫东炜'>
 <div class='song-header'>万吨匿名信.闫东炜</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/万吨匿名信.闫东炜.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/万吨匿名信.闫东炜.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='云女孩.符白牙SiYFics'>
 <div class='song-header'>云女孩.符白牙SiYFics</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/云女孩.符白牙SiYFics.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/云女孩.符白牙SiYFics.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='今天不是明天.PIKASONICfeat兰音Reine'>
 <div class='song-header'>今天不是明天.PIKASONICfeat兰音Reine</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/今天不是明天.PIKASONICfeat兰音Reine.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/今天不是明天.PIKASONICfeat兰音Reine.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='光.姜米條'>
 <div class='song-header'>光.姜米條</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/光.姜米條.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/光.姜米條.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='千紫万紅.r0yvsWABI'>
 <div class='song-header'>千紫万紅.r0yvsWABI</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/千紫万紅.r0yvsWABI.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/千紫万紅.r0yvsWABI.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='双重间谍DoubleAgent.WAVAV'>
 <div class='song-header'>双重间谍DoubleAgent.WAVAV</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/双重间谍DoubleAgent.WAVAV.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/双重间谍DoubleAgent.WAVAV.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='君往何处QuoVadis.M2U'>
 <div class='song-header'>君往何处QuoVadis.M2U</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/君往何处QuoVadis.M2U.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/君往何处QuoVadis.M2U.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='大和撫子WildDances.adapatorvsDRIVE'>
 <div class='song-header'>大和撫子WildDances.adapatorvsDRIVE</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/大和撫子WildDances.adapatorvsDRIVE.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/大和撫子WildDances.adapatorvsDRIVE.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='宇宙残骸少女CosmicDustyGirl.辻原一郎'>
 <div class='song-header'>宇宙残骸少女CosmicDustyGirl.辻原一郎</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/宇宙残骸少女CosmicDustyGirl.辻原一郎.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/宇宙残骸少女CosmicDustyGirl.辻原一郎.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='尊師TheGuru.rider'>
 <div class='song-header'>尊師TheGuru.rider</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/尊師TheGuru.rider.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/尊師TheGuru.rider.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='幻影鬼魅PLEASE.R300K'>
 <div class='song-header'>幻影鬼魅PLEASE.R300K</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/幻影鬼魅PLEASE.R300K.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/幻影鬼魅PLEASE.R300K.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='幽世桔梗.Capchiifeatまるもこ'>
 <div class='song-header'>幽世桔梗.Capchiifeatまるもこ</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/幽世桔梗.Capchiifeatまるもこ.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/幽世桔梗.Capchiifeatまるもこ.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='开心病.闫东炜'>
 <div class='song-header'>开心病.闫东炜</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/开心病.闫东炜.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/开心病.闫东炜.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='心の記憶.A39沙包P'>
 <div class='song-header'>心の記憶.A39沙包P</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/心の記憶.A39沙包P.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/心の記憶.A39沙包P.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='心之所向.姜米條'>
 <div class='song-header'>心之所向.姜米條</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/心之所向.姜米條.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/心之所向.姜米條.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='明鏡烈火.MUEvsRekuMochizuki'>
 <div class='song-header'>明鏡烈火.MUEvsRekuMochizuki</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/明鏡烈火.MUEvsRekuMochizuki.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/明鏡烈火.MUEvsRekuMochizuki.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='暗夜苏醒REANIMATE.Warak'>
 <div class='song-header'>暗夜苏醒REANIMATE.Warak</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/暗夜苏醒REANIMATE.Warak.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/暗夜苏醒REANIMATE.Warak.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='最高傑作.PYKAMIA'>
 <div class='song-header'>最高傑作.PYKAMIA</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/最高傑作.PYKAMIA.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/最高傑作.PYKAMIA.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='月下缭乱.月見静華vsLUNARiUM'>
 <div class='song-header'>月下缭乱.月見静華vsLUNARiUM</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/月下缭乱.月見静華vsLUNARiUM.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/月下缭乱.月見静華vsLUNARiUM.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='月詠に鳴る.Feryquitousfeat藍月なくる'>
 <div class='song-header'>月詠に鳴る.Feryquitousfeat藍月なくる</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/月詠に鳴る.Feryquitousfeat藍月なくる.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/月詠に鳴る.Feryquitousfeat藍月なくる.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='望影の方舟Six.SeURa'>
 <div class='song-header'>望影の方舟Six.SeURa</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/望影の方舟Six.SeURa.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/望影の方舟Six.SeURa.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='桜樹街道.kozatosnow'>
 <div class='song-header'>桜樹街道.kozatosnow</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/桜樹街道.kozatosnow.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/桜樹街道.kozatosnow.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='混乱Confusion.OnlyMyBlackScore'>
 <div class='song-header'>混乱Confusion.OnlyMyBlackScore</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/混乱Confusion.OnlyMyBlackScore.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/混乱Confusion.OnlyMyBlackScore.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='游园地.椒盐菠萝'>
 <div class='song-header'>游园地.椒盐菠萝</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/游园地.椒盐菠萝.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/游园地.椒盐菠萝.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='狂喜蘭舞.LeaF'>
 <div class='song-header'>狂喜蘭舞.LeaF</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/狂喜蘭舞.LeaF.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/狂喜蘭舞.LeaF.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='瓷岁.茶鸣拾贰律'>
 <div class='song-header'>瓷岁.茶鸣拾贰律</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/瓷岁.茶鸣拾贰律.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/瓷岁.茶鸣拾贰律.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='白と黒のバケモノ.テヅカ'>
 <div class='song-header'>白と黒のバケモノ.テヅカ</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/白と黒のバケモノ.テヅカ.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/白と黒のバケモノ.テヅカ.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='百鬼夜行.SaladSavior'>
 <div class='song-header'>百鬼夜行.SaladSavior</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/百鬼夜行.SaladSavior.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/百鬼夜行.SaladSavior.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='盏茗.茶鸣拾贰律'>
 <div class='song-header'>盏茗.茶鸣拾贰律</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/盏茗.茶鸣拾贰律.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/盏茗.茶鸣拾贰律.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='祈-我ら神祖と共に歩む者なり-.光吉猛修VS穴山大輔VSKaiVS水野健治VS大国奏音'>
 <div class='song-header'>祈-我ら神祖と共に歩む者なり-.光吉猛修VS穴山大輔VSKaiVS水野健治VS大国奏音</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/祈-我ら神祖と共に歩む者なり-.光吉猛修VS穴山大輔VSKaiVS水野健治VS大国奏音.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/祈-我ら神祖と共に歩む者なり-.光吉猛修VS穴山大輔VSKaiVS水野健治VS大国奏音.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='神話.PicaM2U'>
 <div class='song-header'>神話.PicaM2U</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/神話.PicaM2U.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/神話.PicaM2U.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='聖夜讃歌.A39沙包P'>
 <div class='song-header'>聖夜讃歌.A39沙包P</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/聖夜讃歌.A39沙包P.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/聖夜讃歌.A39沙包P.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='華灯爱.闫东炜'>
 <div class='song-header'>華灯爱.闫东炜</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/華灯爱.闫东炜.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/華灯爱.闫东炜.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='萤火虫の怨.闫东炜'>
 <div class='song-header'>萤火虫の怨.闫东炜</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/萤火虫の怨.闫东炜.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/萤火虫の怨.闫东炜.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='蝎虎天体Lacertid.CreamvsDaily天利'>
 <div class='song-header'>蝎虎天体Lacertid.CreamvsDaily天利</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/蝎虎天体Lacertid.CreamvsDaily天利.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/蝎虎天体Lacertid.CreamvsDaily天利.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='贝多芬祝福BeethovenBlessing.Nauts'>
 <div class='song-header'>贝多芬祝福BeethovenBlessing.Nauts</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/贝多芬祝福BeethovenBlessing.Nauts.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/贝多芬祝福BeethovenBlessing.Nauts.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='重生.姜米條'>
 <div class='song-header'>重生.姜米條</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/重生.姜米條.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/重生.姜米條.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='雪降りメリクリ.A39'>
 <div class='song-header'>雪降りメリクリ.A39</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/雪降りメリクリ.A39.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/雪降りメリクリ.A39.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='雪降り雪が降っている.AiSSw夜輪ft結月ゆかり'>
 <div class='song-header'>雪降り雪が降っている.AiSSw夜輪ft結月ゆかり</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/雪降り雪が降っている.AiSSw夜輪ft結月ゆかり.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/雪降り雪が降っている.AiSSw夜輪ft結月ゆかり.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='零號車輛.seatrus'>
 <div class='song-header'>零號車輛.seatrus</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/零號車輛.seatrus.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/零號車輛.seatrus.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='青丘.BLACK0'>
 <div class='song-header'>青丘.BLACK0</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/青丘.BLACK0.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/青丘.BLACK0.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='青芽.茶鸣拾贰律'>
 <div class='song-header'>青芽.茶鸣拾贰律</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/青芽.茶鸣拾贰律.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/青芽.茶鸣拾贰律.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='风屿.闫东炜'>
 <div class='song-header'>风屿.闫东炜</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/风屿.闫东炜.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/风屿.闫东炜.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
 <div class='song-card' data-name='黄金之城GOLDTOWN.Memme'>
 <div class='song-header'>黄金之城GOLDTOWN.Memme</div>
 <div class='song-content'>
 <div class='preview-area'>
-<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/黄金之城GOLDTOWN.Memme.png' loading='lazy' onclick='window.open(this.src)'>
+<img class='preview-img' src='https://husbvt.github.io/Phigros_Resource_Build/illustration/黄金之城GOLDTOWN.Memme.png' onclick='window.open(this.src)'>
 </div>
 <div class='resource-list'>
-</div>
-</div>
-</div>
+</div></div></div>
         </div>
     </div>
     <script>

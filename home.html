@@ -5,6 +5,225 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zephyr的下载站</title>
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+    
+    <!-- 访问控制验证脚本 -->
+    <script>
+        // ===== 访问控制验证 =====
+        (function() {
+            console.log('🔐 开始验证访问权限...');
+            
+            // 显示加载提示
+            document.body.innerHTML = `
+                <div style="
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    min-height: 100vh;
+                    background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+                    color: #c9d1d9;
+                    text-align: center;
+                    padding: 20px;
+                ">
+                    <div style="background: #161b22; border: 1px solid #30363d; padding: 3rem; border-radius: 12px; max-width: 500px;">
+                        <h2 style="color: #58a6ff;">🔒 验证访问权限中...</h2>
+                        <p>正在检查验证状态，请稍候。</p>
+                        <div style="margin-top: 20px;">
+                            <div style="width: 100%; height: 4px; background: #30363d; border-radius: 2px; overflow: hidden;">
+                                <div id="authProgress" style="height: 100%; background: #238636; width: 0%; transition: width 0.3s;"></div>
+                            </div>
+                        </div>
+                        <p style="color: #8b949e; font-size: 0.9em; margin-top: 20px;">
+                            如果长时间停留在此页面，请先访问验证页面
+                        </p>
+                        <button onclick="goToVerification()" style="
+                            margin-top: 20px;
+                            padding: 12px 24px;
+                            background: #238636;
+                            color: white;
+                            border: none;
+                            border-radius: 6px;
+                            cursor: pointer;
+                            font-weight: bold;
+                        ">
+                            前往验证页面
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            // 进度条动画
+            let progress = 0;
+            const progressInterval = setInterval(() => {
+                progress += 10;
+                const progressBar = document.getElementById('authProgress');
+                if (progressBar) {
+                    progressBar.style.width = progress + '%';
+                }
+                if (progress >= 100) clearInterval(progressInterval);
+            }, 200);
+            
+            // 1. 检查令牌是否存在
+            const authToken = sessionStorage.getItem('auth_token');
+            
+            if (!authToken) {
+                console.warn('未找到验证令牌，重定向到验证页');
+                setTimeout(() => redirectToVerification('未找到验证令牌'), 1500);
+                return;
+            }
+            
+            // 2. 解密并验证令牌
+            try {
+                const decodedToken = atob(authToken);
+                const [timestampStr, random] = decodedToken.split('_');
+                const timestamp = parseInt(timestampStr);
+                
+                if (isNaN(timestamp)) {
+                    console.error('令牌格式错误');
+                    setTimeout(() => redirectToVerification('令牌格式错误'), 1500);
+                    return;
+                }
+                
+                // 3. 检查令牌是否在有效期内（10分钟）
+                const now = Date.now();
+                const tenMinutes = 10 * 60 * 1000;
+                
+                if ((now - timestamp) > tenMinutes) {
+                    console.warn('验证令牌已过期');
+                    setTimeout(() => redirectToVerification('验证令牌已过期'), 1500);
+                    return;
+                }
+                
+                // 4. 验证通过，更新最后访问时间
+                console.log('✅ 验证通过！令牌时间:', new Date(timestamp).toLocaleTimeString());
+                
+                // 可选：更新令牌时间，延长有效期
+                const newToken = btoa(now.toString() + '_' + Math.random().toString(36).substr(2));
+                sessionStorage.setItem('auth_token', newToken);
+                
+                // 设置页面访问标记
+                sessionStorage.setItem('page_loaded', 'true');
+                
+                // 清除进度条动画
+                clearInterval(progressInterval);
+                
+                // 显示成功信息
+                document.body.innerHTML = `
+                    <div style="
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        min-height: 100vh;
+                        background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+                        color: #c9d1d9;
+                        text-align: center;
+                        padding: 20px;
+                    ">
+                        <div style="background: #161b22; border: 1px solid #30363d; padding: 3rem; border-radius: 12px; max-width: 500px;">
+                            <h2 style="color: #238636;">✅ 验证成功！</h2>
+                            <p>正在加载下载站，请稍候...</p>
+                            <div style="margin-top: 20px;">
+                                <div style="width: 100%; height: 4px; background: #30363d; border-radius: 2px; overflow: hidden;">
+                                    <div id="loadProgress" style="height: 100%; background: #58a6ff; width: 0%; transition: width 0.3s;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                // 加载进度条
+                let loadProgress = 0;
+                const loadInterval = setInterval(() => {
+                    loadProgress += 20;
+                    const progressBar = document.getElementById('loadProgress');
+                    if (progressBar) {
+                        progressBar.style.width = loadProgress + '%';
+                    }
+                    if (loadProgress >= 100) {
+                        clearInterval(loadInterval);
+                        // 移除覆盖，显示真实页面
+                        document.body.innerHTML = originalBody;
+                        // 重新执行页面初始化函数
+                        if (typeof initPage === 'function') {
+                            setTimeout(initPage, 100);
+                        }
+                    }
+                }, 100);
+                
+            } catch (error) {
+                console.error('令牌验证失败:', error);
+                setTimeout(() => redirectToVerification('令牌验证失败: ' + error.message), 1500);
+            }
+            
+            function redirectToVerification(reason) {
+                console.log('重定向原因:', reason);
+                
+                // 清除无效令牌
+                sessionStorage.removeItem('auth_token');
+                
+                // 显示提示信息
+                document.body.innerHTML = `
+                    <div style="
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        min-height: 100vh;
+                        background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+                        color: #c9d1d9;
+                        text-align: center;
+                        padding: 20px;
+                    ">
+                        <div style="background: #161b22; border: 1px solid #30363d; padding: 3rem; border-radius: 12px; max-width: 500px;">
+                            <h2 style="color: #da3633;">⚠️ 访问被拒绝</h2>
+                            <p>需要先通过人机验证才能访问此页面。</p>
+                            <p style="color: #8b949e; font-size: 0.9em; margin-top: 20px;">
+                                ${reason ? '原因: ' + reason : '请先访问验证页面完成验证。'}
+                            </p>
+                            <button onclick="goToVerification()" style="
+                                margin-top: 20px;
+                                padding: 12px 24px;
+                                background: #238636;
+                                color: white;
+                                border: none;
+                                border-radius: 6px;
+                                cursor: pointer;
+                                font-weight: bold;
+                            ">
+                                前往验证页面
+                            </button>
+                            <p style="color: #8b949e; font-size: 0.8em; margin-top: 15px;">
+                                3秒后自动跳转...
+                            </p>
+                        </div>
+                    </div>
+                `;
+                
+                // 3秒后自动跳转
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 3000);
+            }
+            
+            window.goToVerification = function() {
+                window.location.href = 'index.html';
+            };
+            
+            // 保存原始页面内容
+            const originalBody = document.body.innerHTML;
+            
+            // 防止页面后退绕过
+            window.onpageshow = function(event) {
+                if (event.persisted) {
+                    // 页面从缓存加载，重新验证
+                    if (!sessionStorage.getItem('auth_token')) {
+                        redirectToVerification('页面从缓存加载，需要重新验证');
+                    }
+                }
+            };
+            
+        })();
+        // ===== 访问控制结束 =====
+    </script>
+    
     <style>
         :root { --blue: #58a6ff; --bg: #0d1117; --card: #161b22; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: #c9d1d9; margin: 0; padding: 15px; }
@@ -6728,460 +6947,470 @@
     </div>
     
     <script>
-        // 全局状态管理
-        const downloadStates = {};
-        
-        // 页面加载完成后初始化
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Zephyr下载站已加载');
-            initLazyLoad();
-            initSearch();
-            initCheckboxes();
-            initStatus();
+        // 页面初始化函数（被访问控制脚本调用）
+        window.initPage = function() {
+            console.log('初始化下载站页面...');
             
-            // 显示使用说明
-            console.log('使用说明：');
-            console.log('1. 选择要下载的文件');
-            console.log('2. 点击"打包下载"按钮');
-            console.log('3. 等待下载完成');
-        });
-        
-        function initLazyLoad() {
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        if (img.dataset.src) {
-                            img.src = img.dataset.src;
-                            img.classList.add('loaded');
-                            observer.unobserve(img);
+            // 全局状态管理
+            const downloadStates = {};
+            
+            // 页面加载完成后初始化
+            document.addEventListener('DOMContentLoaded', function() {
+                console.log('Zephyr下载站已加载');
+                initLazyLoad();
+                initSearch();
+                initCheckboxes();
+                initStatus();
+                
+                // 显示使用说明
+                console.log('使用说明：');
+                console.log('1. 选择要下载的文件');
+                console.log('2. 点击"打包下载"按钮');
+                console.log('3. 等待下载完成');
+            });
+            
+            function initLazyLoad() {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            if (img.dataset.src) {
+                                img.src = img.dataset.src;
+                                img.classList.add('loaded');
+                                observer.unobserve(img);
+                            }
                         }
-                    }
-                });
-            }, { rootMargin: '200px', threshold: 0.1 });
-            
-            document.querySelectorAll('.preview-img.lazy').forEach(img => {
-                imageObserver.observe(img);
-            });
-        }
-        
-        function initSearch() {
-            const searchInput = document.getElementById('search');
-            searchInput.addEventListener('input', function() {
-                const searchTerm = this.value.toLowerCase().trim();
-                const cards = document.querySelectorAll('.song-card');
-                let visibleCount = 0;
+                    });
+                }, { rootMargin: '200px', threshold: 0.1 });
                 
-                cards.forEach(card => {
-                    const songId = card.dataset.name.toLowerCase();
-                    const isMatch = songId.includes(searchTerm);
-                    card.style.display = isMatch ? '' : 'none';
-                    if (isMatch) visibleCount++;
+                document.querySelectorAll('.preview-img.lazy').forEach(img => {
+                    imageObserver.observe(img);
+                });
+            }
+            
+            function initSearch() {
+                const searchInput = document.getElementById('search');
+                searchInput.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase().trim();
+                    const cards = document.querySelectorAll('.song-card');
+                    let visibleCount = 0;
+                    
+                    cards.forEach(card => {
+                        const songId = card.dataset.name.toLowerCase();
+                        const isMatch = songId.includes(searchTerm);
+                        card.style.display = isMatch ? '' : 'none';
+                        if (isMatch) visibleCount++;
+                    });
+                    
+                    if (visibleCount === 0 && searchTerm) {
+                        const listDiv = document.getElementById('list');
+                        if (!listDiv.querySelector('.no-results')) {
+                            const noResults = document.createElement('div');
+                            noResults.className = 'no-files no-results';
+                            noResults.textContent = '未找到匹配的歌曲ID';
+                            listDiv.appendChild(noResults);
+                        }
+                    } else {
+                        const noResults = document.querySelector('.no-results');
+                        if (noResults) noResults.remove();
+                    }
                 });
                 
-                if (visibleCount === 0 && searchTerm) {
-                    const listDiv = document.getElementById('list');
-                    if (!listDiv.querySelector('.no-results')) {
-                        const noResults = document.createElement('div');
-                        noResults.className = 'no-files no-results';
-                        noResults.textContent = '未找到匹配的歌曲ID';
-                        listDiv.appendChild(noResults);
-                    }
-                } else {
-                    const noResults = document.querySelector('.no-results');
-                    if (noResults) noResults.remove();
-                }
-            });
-            
-            searchInput.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    this.value = '';
-                    this.dispatchEvent(new Event('input'));
-                }
-            });
-        }
-        
-        function initCheckboxes() {
-            document.querySelectorAll('.file-item').forEach(item => {
-                item.addEventListener('click', function(e) {
-                    if (e.target.tagName === 'INPUT') return;
-                    const checkbox = this.querySelector('input[type="checkbox"]');
-                    if (checkbox) {
-                        checkbox.checked = !checkbox.checked;
-                        checkbox.dispatchEvent(new Event('change'));
+                searchInput.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape') {
+                        this.value = '';
+                        this.dispatchEvent(new Event('input'));
                     }
                 });
-            });
-        }
-        
-        function initStatus() {
-            document.querySelectorAll('.song-card').forEach(card => {
-                const songId = card.dataset.name;
+            }
+            
+            function initCheckboxes() {
+                document.querySelectorAll('.file-item').forEach(item => {
+                    item.addEventListener('click', function(e) {
+                        if (e.target.tagName === 'INPUT') return;
+                        const checkbox = this.querySelector('input[type="checkbox"]');
+                        if (checkbox) {
+                            checkbox.checked = !checkbox.checked;
+                            checkbox.dispatchEvent(new Event('change'));
+                        }
+                    });
+                });
+            }
+            
+            function initStatus() {
+                document.querySelectorAll('.song-card').forEach(card => {
+                    const songId = card.dataset.name;
+                    updateStatus(songId);
+                });
+            }
+            
+            function toggleAll(songId) {
+                const container = document.getElementById('files-' + songId);
+                if (!container) return;
+                
+                const checkboxes = container.querySelectorAll('.checkbox');
+                if (checkboxes.length === 0) return;
+                
+                const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+                
+                checkboxes.forEach(cb => {
+                    cb.checked = !allChecked;
+                });
+                
                 updateStatus(songId);
-            });
-        }
-        
-        function toggleAll(songId) {
-            const container = document.getElementById('files-' + songId);
-            if (!container) return;
-            
-            const checkboxes = container.querySelectorAll('.checkbox');
-            if (checkboxes.length === 0) return;
-            
-            const allChecked = Array.from(checkboxes).every(cb => cb.checked);
-            
-            checkboxes.forEach(cb => {
-                cb.checked = !allChecked;
-            });
-            
-            updateStatus(songId);
-        }
-        
-        function updateStatus(songId) {
-            const container = document.getElementById('files-' + songId);
-            if (!container) return;
-            
-            const checkboxes = container.querySelectorAll('.checkbox');
-            const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
-            const totalCount = checkboxes.length;
-            
-            const statusElem = document.getElementById('st-' + songId);
-            if (statusElem) {
-                statusElem.textContent = `${checkedCount}/${totalCount}个选中`;
-            }
-        }
-        
-        // 简化的fetch函数，避免触发预检请求
-        async function simpleFetch(url) {
-            console.log('简单请求:', url);
-            
-            // 使用最简单的方式，避免任何可能触发预检的头部
-            const response = await fetch(url, {
-                // 不使用任何自定义头部
-                // 不设置mode（使用默认值）
-                // 不设置credentials
-                // 不设置cache控制
-            });
-            
-            return response;
-        }
-        
-        // 打包下载核心函数
-        async function pack(songId, button) {
-            console.log('开始打包下载:', songId);
-            
-            const statusElem = document.getElementById('st-' + songId);
-            const progressBar = document.getElementById('progress-' + songId);
-            const progressFill = document.getElementById('progress-fill-' + songId);
-            
-            // 防止重复点击
-            if (downloadStates[songId] && downloadStates[songId].isDownloading) {
-                return;
             }
             
-            // 获取选中的文件
-            const container = document.getElementById('files-' + songId);
-            if (!container) {
-                alert('未找到该歌曲的资源');
-                return;
-            }
-            
-            const checkboxes = container.querySelectorAll('.checkbox:checked');
-            if (checkboxes.length === 0) {
-                alert('请至少选择一个文件');
-                return;
-            }
-            
-            console.log('找到', checkboxes.length, '个选中文件');
-            
-            // 设置下载状态
-            downloadStates[songId] = { isDownloading: true, progress: 0 };
-            button.disabled = true;
-            button.innerHTML = '⏳ 处理中...';
-            progressBar.style.display = 'block';
-            progressFill.style.width = '0%';
-            
-            if (statusElem) {
-                statusElem.textContent = '准备下载...';
-            }
-            
-            try {
-                const zip = new JSZip();
-                const totalFiles = checkboxes.length;
-                let processedFiles = 0;
-                let successCount = 0;
-                let failedFiles = [];
+            function updateStatus(songId) {
+                const container = document.getElementById('files-' + songId);
+                if (!container) return;
                 
-                // 创建文件下载队列
-                const downloadQueue = Array.from(checkboxes).map(checkbox => ({
-                    url: checkbox.dataset.url,
-                    name: checkbox.dataset.name || checkbox.dataset.url.split('/').pop()
-                }));
+                const checkboxes = container.querySelectorAll('.checkbox');
+                const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
+                const totalCount = checkboxes.length;
                 
-                console.log('开始下载文件...');
+                const statusElem = document.getElementById('st-' + songId);
+                if (statusElem) {
+                    statusElem.textContent = `${checkedCount}/${totalCount}个选中`;
+                }
+            }
+            
+            // 简化的fetch函数，避免触发预检请求
+            async function simpleFetch(url) {
+                console.log('简单请求:', url);
                 
-                // 依次下载每个文件
-                for (const fileInfo of downloadQueue) {
-                    processedFiles++;
-                    const progress = Math.round((processedFiles / totalFiles) * 100);
-                    progressFill.style.width = progress + '%';
+                // 使用最简单的方式，避免任何可能触发预检的头部
+                const response = await fetch(url, {
+                    // 不使用任何自定义头部
+                    // 不设置mode（使用默认值）
+                    // 不设置credentials
+                    // 不设置cache控制
+                });
+                
+                return response;
+            }
+            
+            // 打包下载核心函数
+            async function pack(songId, button) {
+                console.log('开始打包下载:', songId);
+                
+                const statusElem = document.getElementById('st-' + songId);
+                const progressBar = document.getElementById('progress-' + songId);
+                const progressFill = document.getElementById('progress-fill-' + songId);
+                
+                // 防止重复点击
+                if (downloadStates[songId] && downloadStates[songId].isDownloading) {
+                    return;
+                }
+                
+                // 获取选中的文件
+                const container = document.getElementById('files-' + songId);
+                if (!container) {
+                    alert('未找到该歌曲的资源');
+                    return;
+                }
+                
+                const checkboxes = container.querySelectorAll('.checkbox:checked');
+                if (checkboxes.length === 0) {
+                    alert('请至少选择一个文件');
+                    return;
+                }
+                
+                console.log('找到', checkboxes.length, '个选中文件');
+                
+                // 设置下载状态
+                downloadStates[songId] = { isDownloading: true, progress: 0 };
+                button.disabled = true;
+                button.innerHTML = '⏳ 处理中...';
+                progressBar.style.display = 'block';
+                progressFill.style.width = '0%';
+                
+                if (statusElem) {
+                    statusElem.textContent = '准备下载...';
+                }
+                
+                try {
+                    const zip = new JSZip();
+                    const totalFiles = checkboxes.length;
+                    let processedFiles = 0;
+                    let successCount = 0;
+                    let failedFiles = [];
                     
-                    if (statusElem) {
-                        statusElem.textContent = `下载中 (${progress}%): ${fileInfo.name}`;
-                    }
+                    // 创建文件下载队列
+                    const downloadQueue = Array.from(checkboxes).map(checkbox => ({
+                        url: checkbox.dataset.url,
+                        name: checkbox.dataset.name || checkbox.dataset.url.split('/').pop()
+                    }));
                     
-                    console.log(`[${processedFiles}/${totalFiles}] 下载: ${fileInfo.name}`);
+                    console.log('开始下载文件...');
                     
-                    try {
-                        // 添加时间戳避免缓存，但放在URL中而不是头部
-                        const cacheBustUrl = fileInfo.url + (fileInfo.url.includes('?') ? '&' : '?') + '_=' + Date.now();
+                    // 依次下载每个文件
+                    for (const fileInfo of downloadQueue) {
+                        processedFiles++;
+                        const progress = Math.round((processedFiles / totalFiles) * 100);
+                        progressFill.style.width = progress + '%';
                         
-                        console.log('请求URL:', cacheBustUrl);
-                        
-                        // 使用简化的fetch，避免预检请求
-                        const response = await simpleFetch(cacheBustUrl);
-                        
-                        console.log('响应状态:', response.status, response.statusText);
-                        
-                        if (!response.ok) {
-                            console.error('HTTP错误:', response.status, response.statusText);
-                            failedFiles.push({name: fileInfo.name, error: `HTTP ${response.status}`});
-                            continue;
+                        if (statusElem) {
+                            statusElem.textContent = `下载中 (${progress}%): ${fileInfo.name}`;
                         }
                         
-                        const blob = await response.blob();
-                        console.log('文件大小:', blob.size, 'bytes');
+                        console.log(`[${processedFiles}/${totalFiles}] 下载: ${fileInfo.name}`);
                         
-                        if (blob.size === 0) {
-                            console.warn('文件大小为0:', fileInfo.name);
+                        try {
+                            // 添加时间戳避免缓存，但放在URL中而不是头部
+                            const cacheBustUrl = fileInfo.url + (fileInfo.url.includes('?') ? '&' : '?') + '_=' + Date.now();
                             
-                            // 尝试使用img标签下载图片
-                            if (fileInfo.name.match(/\.(png|jpg|jpeg|gif)$/i)) {
-                                console.log('尝试使用img标签下载图片...');
-                                try {
-                                    const imgBlob = await downloadViaImage(fileInfo.url);
-                                    if (imgBlob && imgBlob.size > 0) {
-                                        zip.file(fileInfo.name, imgBlob);
-                                        successCount++;
-                                        continue;
-                                    }
-                                } catch (imgError) {
-                                    console.log('img标签下载失败:', imgError);
-                                }
+                            console.log('请求URL:', cacheBustUrl);
+                            
+                            // 使用简化的fetch，避免预检请求
+                            const response = await simpleFetch(cacheBustUrl);
+                            
+                            console.log('响应状态:', response.status, response.statusText);
+                            
+                            if (!response.ok) {
+                                console.error('HTTP错误:', response.status, response.statusText);
+                                failedFiles.push({name: fileInfo.name, error: `HTTP ${response.status}`});
+                                continue;
                             }
                             
-                            failedFiles.push({name: fileInfo.name, error: '文件为空'});
-                            continue;
+                            const blob = await response.blob();
+                            console.log('文件大小:', blob.size, 'bytes');
+                            
+                            if (blob.size === 0) {
+                                console.warn('文件大小为0:', fileInfo.name);
+                                
+                                // 尝试使用img标签下载图片
+                                if (fileInfo.name.match(/\.(png|jpg|jpeg|gif)$/i)) {
+                                    console.log('尝试使用img标签下载图片...');
+                                    try {
+                                        const imgBlob = await downloadViaImage(fileInfo.url);
+                                        if (imgBlob && imgBlob.size > 0) {
+                                            zip.file(fileInfo.name, imgBlob);
+                                            successCount++;
+                                            continue;
+                                        }
+                                    } catch (imgError) {
+                                        console.log('img标签下载失败:', imgError);
+                                    }
+                                }
+                                
+                                failedFiles.push({name: fileInfo.name, error: '文件为空'});
+                                continue;
+                            }
+                            
+                            // 添加到ZIP
+                            zip.file(fileInfo.name, blob);
+                            successCount++;
+                            
+                        } catch (fetchError) {
+                            console.error('下载文件失败:', fileInfo.name, fetchError);
+                            failedFiles.push({name: fileInfo.name, error: fetchError.message});
                         }
-                        
-                        // 添加到ZIP
-                        zip.file(fileInfo.name, blob);
-                        successCount++;
-                        
-                    } catch (fetchError) {
-                        console.error('下载文件失败:', fileInfo.name, fetchError);
-                        failedFiles.push({name: fileInfo.name, error: fetchError.message});
                     }
-                }
-                
-                console.log('下载完成，成功:', successCount, '失败:', failedFiles.length);
-                
-                if (successCount === 0) {
-                    throw new Error('所有文件下载都失败了');
-                }
-                
-                // 生成ZIP文件
-                if (statusElem) {
-                    statusElem.textContent = '正在生成ZIP文件...';
-                }
-                progressFill.style.width = '95%';
-                console.log('开始生成ZIP文件...');
-                
-                const zipBlob = await zip.generateAsync({
-                    type: 'blob',
-                    compression: 'DEFLATE',
-                    compressionOptions: { level: 6 }
-                });
-                
-                console.log('ZIP文件大小:', zipBlob.size, 'bytes');
-                
-                if (zipBlob.size === 0) {
-                    throw new Error('生成的ZIP文件为空');
-                }
-                
-                // 创建下载链接
-                const downloadUrl = URL.createObjectURL(zipBlob);
-                const link = document.createElement('a');
-                link.href = downloadUrl;
-                link.download = `${songId}_resources_${Date.now()}.zip`;
-                link.style.display = 'none';
-                
-                // 添加点击事件清理
-                link.onclick = () => {
-                    setTimeout(() => {
-                        document.body.removeChild(link);
-                        URL.revokeObjectURL(downloadUrl);
-                    }, 100);
-                };
-                
-                document.body.appendChild(link);
-                
-                // 触发下载
-                console.log('触发下载:', link.download);
-                link.click();
-                progressFill.style.width = '100%';
-                
-                // 更新状态
-                if (statusElem) {
-                    let statusText = '下载完成！';
+                    
+                    console.log('下载完成，成功:', successCount, '失败:', failedFiles.length);
+                    
+                    if (successCount === 0) {
+                        throw new Error('所有文件下载都失败了');
+                    }
+                    
+                    // 生成ZIP文件
+                    if (statusElem) {
+                        statusElem.textContent = '正在生成ZIP文件...';
+                    }
+                    progressFill.style.width = '95%';
+                    console.log('开始生成ZIP文件...');
+                    
+                    const zipBlob = await zip.generateAsync({
+                        type: 'blob',
+                        compression: 'DEFLATE',
+                        compressionOptions: { level: 6 }
+                    });
+                    
+                    console.log('ZIP文件大小:', zipBlob.size, 'bytes');
+                    
+                    if (zipBlob.size === 0) {
+                        throw new Error('生成的ZIP文件为空');
+                    }
+                    
+                    // 创建下载链接
+                    const downloadUrl = URL.createObjectURL(zipBlob);
+                    const link = document.createElement('a');
+                    link.href = downloadUrl;
+                    link.download = `${songId}_resources_${Date.now()}.zip`;
+                    link.style.display = 'none';
+                    
+                    // 添加点击事件清理
+                    link.onclick = () => {
+                        setTimeout(() => {
+                            document.body.removeChild(link);
+                            URL.revokeObjectURL(downloadUrl);
+                        }, 100);
+                    };
+                    
+                    document.body.appendChild(link);
+                    
+                    // 触发下载
+                    console.log('触发下载:', link.download);
+                    link.click();
+                    progressFill.style.width = '100%';
+                    
+                    // 更新状态
+                    if (statusElem) {
+                        let statusText = '下载完成！';
+                        if (failedFiles.length > 0) {
+                            statusText += ` (${failedFiles.length}个文件失败)`;
+                        }
+                        statusElem.textContent = statusText;
+                    }
+                    button.innerHTML = '✅ 完成';
+                    
+                    // 显示失败文件信息
                     if (failedFiles.length > 0) {
-                        statusText += ` (${failedFiles.length}个文件失败)`;
+                        setTimeout(() => {
+                            const failedList = failedFiles.map(f => `${f.name}: ${f.error}`).join('\n');
+                            alert(`下载完成，但以下文件下载失败:\n\n${failedList}\n\n成功下载: ${successCount}个文件\n失败: ${failedFiles.length}个文件`);
+                        }, 1000);
                     }
-                    statusElem.textContent = statusText;
-                }
-                button.innerHTML = '✅ 完成';
-                
-                // 显示失败文件信息
-                if (failedFiles.length > 0) {
+                    
+                    // 3秒后恢复按钮状态
                     setTimeout(() => {
-                        const failedList = failedFiles.map(f => `${f.name}: ${f.error}`).join('\n');
-                        alert(`下载完成，但以下文件下载失败:\n\n${failedList}\n\n成功下载: ${successCount}个文件\n失败: ${failedFiles.length}个文件`);
-                    }, 1000);
-                }
-                
-                // 3秒后恢复按钮状态
-                setTimeout(() => {
-                    button.disabled = false;
-                    button.innerHTML = '📦 打包下载';
-                    progressBar.style.display = 'none';
-                    if (statusElem) {
-                        updateStatus(songId);
-                    }
-                    downloadStates[songId].isDownloading = false;
-                }, 3000);
-                
-            } catch (error) {
-                console.error('打包下载失败:', error);
-                
-                if (statusElem) {
-                    statusElem.textContent = '下载失败';
-                }
-                button.innerHTML = '❌ 失败';
-                progressBar.style.display = 'none';
-                
-                let errorMsg = '打包下载失败';
-                if (error.message.includes('Failed to fetch') || error.message.includes('CORS')) {
-                    errorMsg += '：跨域请求被阻止。\n\n解决方案：\n1. 安装CORS浏览器插件\n2. 或直接访问 https://husbvt.github.io/phigros.github.io/\n3. 或在GitHub Pages域名下使用';
-                } else if (error.message.includes('所有文件下载都失败了')) {
-                    errorMsg += '：所有文件下载都失败了，可能是网络问题或资源暂时不可用';
-                }
-                
-                alert(errorMsg + '\n\n错误详情: ' + error.message);
-                
-                // 5秒后恢复按钮状态
-                setTimeout(() => {
-                    button.disabled = false;
-                    button.innerHTML = '📦 打包下载';
-                    if (statusElem) {
-                        updateStatus(songId);
-                    }
-                    downloadStates[songId].isDownloading = false;
-                }, 5000);
-            }
-        }
-        
-        // 使用img标签下载图片的备选方案
-        function downloadViaImage(url) {
-            return new Promise((resolve, reject) => {
-                const img = new Image();
-                img.crossOrigin = 'Anonymous'; // 重要：允许跨域
-                
-                img.onload = function() {
-                    const canvas = document.createElement('canvas');
-                    canvas.width = img.width;
-                    canvas.height = img.height;
-                    
-                    const ctx = canvas.getContext('2d');
-                    ctx.drawImage(img, 0, 0);
-                    
-                    canvas.toBlob((blob) => {
-                        if (blob) {
-                            resolve(blob);
-                        } else {
-                            reject(new Error('无法创建Blob'));
+                        button.disabled = false;
+                        button.innerHTML = '📦 打包下载';
+                        progressBar.style.display = 'none';
+                        if (statusElem) {
+                            updateStatus(songId);
                         }
-                    }, 'image/png');
-                };
-                
-                img.onerror = function(err) {
-                    reject(new Error('图片加载失败'));
-                };
-                
-                // 设置超时
-                setTimeout(() => {
-                    reject(new Error('图片加载超时'));
-                }, 10000);
-                
-                img.src = url + (url.includes('?') ? '&' : '?') + 't=' + Date.now();
+                        downloadStates[songId].isDownloading = false;
+                    }, 3000);
+                    
+                } catch (error) {
+                    console.error('打包下载失败:', error);
+                    
+                    if (statusElem) {
+                        statusElem.textContent = '下载失败';
+                    }
+                    button.innerHTML = '❌ 失败';
+                    progressBar.style.display = 'none';
+                    
+                    let errorMsg = '打包下载失败';
+                    if (error.message.includes('Failed to fetch') || error.message.includes('CORS')) {
+                        errorMsg += '：跨域请求被阻止。\n\n解决方案：\n1. 安装CORS浏览器插件\n2. 或直接访问 https://husbvt.github.io/phigros.github.io/\n3. 或在GitHub Pages域名下使用';
+                    } else if (error.message.includes('所有文件下载都失败了')) {
+                        errorMsg += '：所有文件下载都失败了，可能是网络问题或资源暂时不可用';
+                    }
+                    
+                    alert(errorMsg + '\n\n错误详情: ' + error.message);
+                    
+                    // 5秒后恢复按钮状态
+                    setTimeout(() => {
+                        button.disabled = false;
+                        button.innerHTML = '📦 打包下载';
+                        if (statusElem) {
+                            updateStatus(songId);
+                        }
+                        downloadStates[songId].isDownloading = false;
+                    }, 5000);
+                }
+            }
+            
+            // 使用img标签下载图片的备选方案
+            function downloadViaImage(url) {
+                return new Promise((resolve, reject) => {
+                    const img = new Image();
+                    img.crossOrigin = 'Anonymous'; // 重要：允许跨域
+                    
+                    img.onload = function() {
+                        const canvas = document.createElement('canvas');
+                        canvas.width = img.width;
+                        canvas.height = img.height;
+                        
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0);
+                        
+                        canvas.toBlob((blob) => {
+                            if (blob) {
+                                resolve(blob);
+                            } else {
+                                reject(new Error('无法创建Blob'));
+                            }
+                        }, 'image/png');
+                    };
+                    
+                    img.onerror = function(err) {
+                        reject(new Error('图片加载失败'));
+                    };
+                    
+                    // 设置超时
+                    setTimeout(() => {
+                        reject(new Error('图片加载超时'));
+                    }, 10000);
+                    
+                    img.src = url + (url.includes('?') ? '&' : '?') + 't=' + Date.now();
+                });
+            }
+            
+            // 监听复选框变化
+            document.addEventListener('change', function(e) {
+                if (e.target && e.target.classList.contains('checkbox')) {
+                    const songId = e.target.closest('.song-card')?.dataset.name;
+                    if (songId) {
+                        updateStatus(songId);
+                    }
+                }
             });
-        }
-        
-        // 监听复选框变化
-        document.addEventListener('change', function(e) {
-            if (e.target && e.target.classList.contains('checkbox')) {
-                const songId = e.target.closest('.song-card')?.dataset.name;
-                if (songId) {
-                    updateStatus(songId);
-                }
-            }
-        });
-        
-        // 键盘快捷键
-        document.addEventListener('keydown', function(e) {
-            if (e.ctrlKey && e.key === 'f') {
-                e.preventDefault();
-                document.getElementById('search').focus();
-            }
             
-            if (e.key === 'Escape') {
-                const searchInput = document.getElementById('search');
-                if (document.activeElement === searchInput) {
-                    searchInput.value = '';
-                    searchInput.dispatchEvent(new Event('input'));
+            // 键盘快捷键
+            document.addEventListener('keydown', function(e) {
+                if (e.ctrlKey && e.key === 'f') {
+                    e.preventDefault();
+                    document.getElementById('search').focus();
                 }
-            }
-        });
-        
-        // 测试JSDelivr连接
-        window.testConnection = async function() {
-            console.log('测试JSDelivr连接...');
-            const testUrl = 'https://cdn.jsdelivr.net/gh/husbvt/Phigros_Resource_Build@master/illustration/000AinSophAur.Yumeji.png';
+                
+                if (e.key === 'Escape') {
+                    const searchInput = document.getElementById('search');
+                    if (document.activeElement === searchInput) {
+                        searchInput.value = '';
+                        searchInput.dispatchEvent(new Event('input'));
+                    }
+                }
+            });
             
-            try {
-                // 测试简单请求
-                console.log('测试简单请求...');
-                const response = await fetch(testUrl);
-                console.log('简单请求结果:', response.status, response.ok ? '✓ 成功' : '✗ 失败');
+            // 测试JSDelivr连接
+            window.testConnection = async function() {
+                console.log('测试JSDelivr连接...');
+                const testUrl = 'https://cdn.jsdelivr.net/gh/husbvt/Phigros_Resource_Build@master/illustration/000AinSophAur.Yumeji.png';
                 
-                // 测试带时间戳的请求
-                console.log('测试带缓存清除的请求...');
-                const response2 = await fetch(testUrl + '?t=' + Date.now());
-                console.log('缓存清除请求结果:', response2.status, response2.ok ? '✓ 成功' : '✗ 失败');
-                
-                return response.ok && response2.ok;
-            } catch (error) {
-                console.error('连接测试失败:', error);
-                return false;
-            }
+                try {
+                    // 测试简单请求
+                    console.log('测试简单请求...');
+                    const response = await fetch(testUrl);
+                    console.log('简单请求结果:', response.status, response.ok ? '✓ 成功' : '✗ 失败');
+                    
+                    // 测试带时间戳的请求
+                    console.log('测试带缓存清除的请求...');
+                    const response2 = await fetch(testUrl + '?t=' + Date.now());
+                    console.log('缓存清除请求结果:', response2.status, response2.ok ? '✓ 成功' : '✗ 失败');
+                    
+                    return response.ok && response2.ok;
+                } catch (error) {
+                    console.error('连接测试失败:', error);
+                    return false;
+                }
+            };
+            
+            // 页面加载后显示提示
+            setTimeout(() => {
+                console.log('如果下载失败，请尝试：');
+                console.log('1. 刷新页面重试');
+                console.log('2. 在控制台输入 testConnection() 测试连接');
+                console.log('3. 直接访问 https://husbvt.github.io/phigros.github.io/');
+            }, 1000);
         };
         
-        // 页面加载后显示提示
-        setTimeout(() => {
-            console.log('如果下载失败，请尝试：');
-            console.log('1. 刷新页面重试');
-            console.log('2. 在控制台输入 testConnection() 测试连接');
-            console.log('3. 直接访问 https://husbvt.github.io/phigros.github.io/');
-        }, 1000);
+        // 立即执行初始化
+        if (sessionStorage.getItem('page_loaded') === 'true') {
+            initPage();
+        }
     </script>
 </body>
 </html>

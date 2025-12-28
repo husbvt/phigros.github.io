@@ -57,6 +57,10 @@
         #redirectButton:hover {
             background: #2ea043;
         }
+        .countdown {
+            color: #58a6ff;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -71,21 +75,74 @@
         </div>
 
         <div id="successMessage">
-            <p>✅ 验证成功！</p>
+            <p id="successText">✅ 验证成功！</p>
             <button id="redirectButton" onclick="enterSite()">进入下载站</button>
+            <p id="countdownText" style="margin-top: 10px; font-size: 0.9em; display: none;">
+                <span id="countdownNum" class="countdown">5</span> 秒后自动跳转...
+            </p>
         </div>
     </div>
 
     <script>
+        let countdownTimer = null;
+        let countdownSeconds = 5;
+        
         // 验证成功后的回调
         function onSuccess(token) {
-            document.getElementById('successMessage').style.display = 'block';
+            const successMessage = document.getElementById('successMessage');
+            const successText = document.getElementById('successText');
+            const countdownText = document.getElementById('countdownText');
+            const countdownNum = document.getElementById('countdownNum');
+            const redirectButton = document.getElementById('redirectButton');
+            
+            // 显示成功消息
+            successMessage.style.display = 'block';
+            successText.innerHTML = '✅ 验证成功！';
+            
+            // 显示倒计时
+            countdownText.style.display = 'block';
+            countdownNum.textContent = countdownSeconds;
+            
+            // 启动倒计时
+            countdownTimer = setInterval(function() {
+                countdownSeconds--;
+                countdownNum.textContent = countdownSeconds;
+                
+                if (countdownSeconds <= 0) {
+                    clearInterval(countdownTimer);
+                    window.location.href = 'home.html';
+                }
+            }, 1000);
+            
+            // 修改按钮文字提示
+            redirectButton.textContent = `立即进入（${countdownSeconds}s）`;
+            
+            // 更新按钮倒计时
+            const buttonTimer = setInterval(function() {
+                countdownSeconds--;
+                redirectButton.textContent = `立即进入（${countdownSeconds}s）`;
+                
+                if (countdownSeconds <= 0) {
+                    clearInterval(buttonTimer);
+                }
+            }, 1000);
         }
-        // 进入网站
+        
+        // 进入网站（手动点击）
         function enterSite() {
-            // 跳转到你原来的首页文件
-            window.location.href = 'home.html'; // 请确保这个文件名和你的原首页文件一致！
+            if (countdownTimer) {
+                clearInterval(countdownTimer);
+            }
+            window.location.href = 'home.html';
         }
+        
+        // 页面加载时检查是否已通过验证（防止重复验证）
+        window.onload = function() {
+            // 可以在这里添加本地存储检查，如果之前已验证过，直接跳转
+            // if (localStorage.getItem('verified') === 'true') {
+            //     window.location.href = 'home.html';
+            // }
+        };
     </script>
 </body>
 </html>

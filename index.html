@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>访问验证 - Zephyr的下载站</title>
-    <!-- 引入 Cloudflare Turnstile -->
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <style>
+        /* 保持你原来的样式不变 */
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             display: flex;
@@ -14,7 +14,6 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            /* 使用和你原站风格相近的深色渐变背景 */
             background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
             color: #c9d1d9;
             text-align: center;
@@ -99,6 +98,19 @@
             successMessage.style.display = 'block';
             successText.innerHTML = '✅ 验证成功！';
             
+            // === 关键修改：设置验证令牌 ===
+            // 1. 生成一个加密的时间戳
+            const tokenStr = btoa(Date.now().toString() + '_' + Math.random().toString(36).substr(2));
+            
+            // 2. 保存到 sessionStorage（会话期间有效）
+            sessionStorage.setItem('auth_token', tokenStr);
+            
+            // 3. 保存到 localStorage（可选，用于检查是否曾经验证过）
+            localStorage.setItem('last_verified', Date.now().toString());
+            
+            console.log('验证令牌已设置:', tokenStr.substring(0, 10) + '...');
+            // === 修改结束 ===
+            
             // 显示倒计时
             countdownText.style.display = 'block';
             countdownNum.textContent = countdownSeconds;
@@ -110,7 +122,7 @@
                 
                 if (countdownSeconds <= 0) {
                     clearInterval(countdownTimer);
-                    window.location.href = 'home.html';
+                    enterSite(); // 调用跳转函数
                 }
             }, 1000);
             
@@ -133,15 +145,41 @@
             if (countdownTimer) {
                 clearInterval(countdownTimer);
             }
+            
+            // 再次确认令牌已设置
+            if (!sessionStorage.getItem('auth_token')) {
+                // 如果意外丢失，重新设置
+                const tokenStr = btoa(Date.now().toString() + '_' + Math.random().toString(36).substr(2));
+                sessionStorage.setItem('auth_token', tokenStr);
+            }
+            
+            // 跳转到下载站
             window.location.href = 'home.html';
         }
         
-        // 页面加载时检查是否已通过验证（防止重复验证）
+        // 页面加载时检查是否已通过验证（快速访问）
         window.onload = function() {
-            // 可以在这里添加本地存储检查，如果之前已验证过，直接跳转
-            // if (localStorage.getItem('verified') === 'true') {
-            //     window.location.href = 'home.html';
-            // }
+            // 如果最近验证过（5分钟内），直接跳转
+            const lastVerified = parseInt(localStorage.getItem('last_verified') || '0');
+            const now = Date.now();
+            const fiveMinutes = 5 * 60 * 1000;
+            
+            if (lastVerified && (now - lastVerified) < fiveMinutes) {
+                console.log('检测到最近已验证，快速跳转中...');
+                // 设置新令牌
+                const tokenStr = btoa(now.toString() + '_' + Math.random().toString(36).substr(2));
+                sessionStorage.setItem('auth_token', tokenStr);
+                localStorage.setItem('last_verified', now.toString());
+                
+                // 显示提示
+                document.getElementById('successMessage').style.display = 'block';
+                document.getElementById('successText').innerHTML = '⏱️ 最近已验证，正在跳转...';
+                
+                // 2秒后跳转
+                setTimeout(() => {
+                    window.location.href = 'home.html';
+                }, 2000);
+            }
         };
     </script>
 </body>

@@ -6,7 +6,6 @@
     <title>访问验证 - Zephyr的下载站</title>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <style>
-        /* 保持你原来的样式不变 */
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             display: flex;
@@ -19,7 +18,7 @@
             text-align: center;
         }
         .verification-box {
-            background: var(--card, #161b22);
+            background: #161b22;
             border: 1px solid #30363d;
             padding: 3rem;
             border-radius: 12px;
@@ -83,10 +82,10 @@
     </div>
 
     <script>
+        // === 修复倒计时：全局变量管理 ===
         let countdownTimer = null;
-        let countdownSeconds = 5;
+        let buttonTimer = null;
         
-        // 验证成功后的回调
         function onSuccess(token) {
             const successMessage = document.getElementById('successMessage');
             const successText = document.getElementById('successText');
@@ -94,93 +93,91 @@
             const countdownNum = document.getElementById('countdownNum');
             const redirectButton = document.getElementById('redirectButton');
             
-            // 显示成功消息
             successMessage.style.display = 'block';
             successText.innerHTML = '✅ 验证成功！';
             
-            // === 关键修改：设置验证令牌 ===
-            // 1. 生成一个加密的时间戳
+            // 生成令牌
             const tokenStr = btoa(Date.now().toString() + '_' + Math.random().toString(36).substr(2));
-            
-            // 2. 保存到 sessionStorage（会话期间有效）
             sessionStorage.setItem('auth_token', tokenStr);
-            
-            // 3. 保存到 localStorage（可选，用于检查是否曾经验证过）
             localStorage.setItem('last_verified', Date.now().toString());
             
-            console.log('验证令牌已设置:', tokenStr.substring(0, 10) + '...');
-            // === 修改结束 ===
+            console.log('验证令牌:', tokenStr.substring(0, 15) + '...');
             
-            // 显示倒计时
-            countdownText.style.display = 'block';
+            // === 修复1：清除所有可能的定时器 ===
+            if (countdownTimer) clearInterval(countdownTimer);
+            if (buttonTimer) clearInterval(buttonTimer);
+            
+            // === 修复2：重置倒计时变量 ===
+            let countdownSeconds = 5;
             countdownNum.textContent = countdownSeconds;
+            countdownText.style.display = 'block';
             
-            // 启动倒计时
+            // 主倒计时
             countdownTimer = setInterval(function() {
                 countdownSeconds--;
                 countdownNum.textContent = countdownSeconds;
                 
                 if (countdownSeconds <= 0) {
                     clearInterval(countdownTimer);
-                    enterSite(); // 调用跳转函数
+                    enterSite();
                 }
             }, 1000);
             
-            // 修改按钮文字提示
-            redirectButton.textContent = `立即进入（${countdownSeconds}s）`;
+            // 按钮倒计时
+            let buttonSeconds = 5;
+            redirectButton.textContent = `立即进入（${buttonSeconds}s）`;
             
-            // 更新按钮倒计时
-            const buttonTimer = setInterval(function() {
-                countdownSeconds--;
-                redirectButton.textContent = `立即进入（${countdownSeconds}s）`;
-                
-                if (countdownSeconds <= 0) {
+            buttonTimer = setInterval(function() {
+                buttonSeconds--;
+                if (buttonSeconds > 0) {
+                    redirectButton.textContent = `立即进入（${buttonSeconds}s）`;
+                } else {
                     clearInterval(buttonTimer);
+                    redirectButton.textContent = '立即进入';
                 }
             }, 1000);
         }
         
-        // 进入网站（手动点击）
         function enterSite() {
-            if (countdownTimer) {
-                clearInterval(countdownTimer);
-            }
+            // 清除所有定时器
+            if (countdownTimer) clearInterval(countdownTimer);
+            if (buttonTimer) clearInterval(buttonTimer);
             
-            // 再次确认令牌已设置
+            // 确保令牌存在
             if (!sessionStorage.getItem('auth_token')) {
-                // 如果意外丢失，重新设置
                 const tokenStr = btoa(Date.now().toString() + '_' + Math.random().toString(36).substr(2));
                 sessionStorage.setItem('auth_token', tokenStr);
             }
             
-            // 跳转到下载站
+            // 跳转
             window.location.href = 'home.html';
         }
         
-        // 页面加载时检查是否已通过验证（快速访问）
         window.onload = function() {
-            // 如果最近验证过（5分钟内），直接跳转
             const lastVerified = parseInt(localStorage.getItem('last_verified') || '0');
             const now = Date.now();
             const fiveMinutes = 5 * 60 * 1000;
             
             if (lastVerified && (now - lastVerified) < fiveMinutes) {
-                console.log('检测到最近已验证，快速跳转中...');
-                // 设置新令牌
+                console.log('快速验证跳转...');
                 const tokenStr = btoa(now.toString() + '_' + Math.random().toString(36).substr(2));
                 sessionStorage.setItem('auth_token', tokenStr);
                 localStorage.setItem('last_verified', now.toString());
                 
-                // 显示提示
                 document.getElementById('successMessage').style.display = 'block';
-                document.getElementById('successText').innerHTML = '⏱️ 最近已验证，正在跳转...';
+                document.getElementById('successText').innerHTML = '⏱️ 最近已验证，跳转中...';
                 
-                // 2秒后跳转
                 setTimeout(() => {
                     window.location.href = 'home.html';
-                }, 2000);
+                }, 1000);
             }
         };
+        
+        // === 修复3：页面卸载时清理定时器 ===
+        window.addEventListener('beforeunload', function() {
+            if (countdownTimer) clearInterval(countdownTimer);
+            if (buttonTimer) clearInterval(buttonTimer);
+        });
     </script>
 </body>
 </html>

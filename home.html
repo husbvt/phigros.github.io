@@ -6,6 +6,7 @@
     <title>Zephyr的下载站</title>
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
     <script>
+        // 验证动画 (保持不变)
         (function() {
             document.write('<div id="v-over" style="position:fixed;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,#0d1117,#161b22);display:flex;justify-content:center;align-items:center;z-index:9999;transition:0.4s;"><div style="background:#161b22;border:1px solid #30363d;padding:2.5rem;border-radius:15px;width:90%;max-width:400px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.5);"><h2 style="color:#58a6ff;font-family:sans-serif;">🔒 访问验证中</h2><div style="height:8px;background:#30363d;border-radius:4px;margin:20px 0;overflow:hidden;"><div id="p-bar" style="height:100%;background:linear-gradient(90deg,#238636,#2ea043);width:0%;transition:0.3s;"></div></div><p id="v-stat" style="color:#8b949e;font-size:14px;">正在初始化...</p><button id="re-btn" onclick="location.href=\'index.html\'" style="display:none;margin-top:15px;padding:10px 20px;background:#238636;color:white;border:none;border-radius:6px;cursor:pointer;">返回验证页</button></div></div>');
             let p=0;const iv=setInterval(()=>{p+=Math.random()*15;if(p>95)p=95;document.getElementById('p-bar').style.width=p+'%';},150);
@@ -18,13 +19,17 @@
         body { background: var(--bg); color: #c9d1d9; font-family: sans-serif; margin: 0; padding: 20px; }
         .container { max-width: 900px; margin: 0 auto; }
         .search { width: 100%; padding: 14px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; color: white; margin-bottom: 25px; outline: none; box-sizing: border-box; }
+        
+        /* 歌曲卡片样式 */
         .song-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 25px; overflow: hidden; animation: fadeIn 0.5s ease; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .song-header { background: #21262d; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
-        .song-title { color: var(--blue); font-weight: bold; }
+        .song-title { color: var(--blue); font-weight: bold; font-size: 1.1em; }
         .song-body { display: flex; padding: 20px; gap: 20px; flex-wrap: wrap; }
         .preview-img { width: 220px; height: 130px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border); background: #0d1117; }
         .file-list { flex: 1; min-width: 300px; }
+        
+        /* 文件条目样式 */
         .file-item { display: flex; align-items: center; background: #0d1117; padding: 10px 15px; margin-bottom: 8px; border-radius: 8px; border: 1px solid var(--border); cursor: pointer; transition: 0.2s; }
         .file-item:hover { border-color: var(--blue); background: #1c2128; }
         .file-item input { margin-right: 15px; width: 18px; height: 18px; accent-color: var(--green); }
@@ -32,8 +37,23 @@
         .tag-ill { background: #da3633; } .tag-audio { background: #1f6feb; } .tag-chart { background: #238636; }
         .diff { font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: bold; margin-left: auto; color: #fff; }
         .diff-sp { background: #f9c74f; color: #000; } .diff-at { background: #6c757d; } .diff-in { background: #da3633; } .diff-hd { background: #0077b6; } .diff-ez { background: #52b788; }
-        .btn-pack { background: var(--green); color: white; border: none; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-weight: bold; }
-        .btn-sel { background: transparent; color: var(--blue); border: 1px solid var(--blue); padding: 7px 12px; border-radius: 8px; cursor: pointer; font-size: 13px; margin-right: 10px; }
+        
+        /* 按钮样式 */
+        .btn-pack { background: var(--green); color: white; border: none; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.2s; }
+        .btn-pack:hover { background: #2ea043; }
+        .btn-pack:disabled { opacity: 0.6; cursor: not-allowed; }
+        .btn-sel { background: transparent; color: var(--blue); border: 1px solid var(--blue); padding: 7px 12px; border-radius: 8px; cursor: pointer; font-size: 13px; margin-right: 10px; transition: 0.2s; }
+        .btn-sel:hover { background: rgba(88, 166, 255, 0.1); }
+
+        /* === 新增：下载进度弹窗样式 === */
+        #dl-modal { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); z-index: 10000; justify-content: center; align-items: center; backdrop-filter: blur(5px); }
+        .dl-content { background: #161b22; border: 1px solid #30363d; padding: 30px; border-radius: 12px; width: 90%; max-width: 400px; text-align: center; animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        @keyframes popIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .dl-title { font-size: 18px; margin-bottom: 20px; color: #c9d1d9; font-weight: bold; }
+        .dl-bar-bg { width: 100%; height: 10px; background: #30363d; border-radius: 5px; overflow: hidden; margin-bottom: 10px; }
+        .dl-bar-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #238636, #2ea043); transition: width 0.3s ease; }
+        .dl-status { font-size: 14px; color: #8b949e; min-height: 20px; }
+        .dl-close { margin-top: 20px; padding: 8px 20px; background: #30363d; border: none; color: white; border-radius: 6px; cursor: pointer; display: none; }
     </style>
 </head>
 <body>
@@ -42,10 +62,19 @@
         <input type="text" id="search" class="search" placeholder="🔍 输入歌曲ID搜索...">
         <div id="list"></div>
     </div>
+
+    <div id="dl-modal">
+        <div class="dl-content">
+            <div class="dl-title">📦 资源打包中</div>
+            <div class="dl-bar-bg"><div id="dl-progress" class="dl-bar-fill"></div></div>
+            <div id="dl-text" class="dl-status">准备开始...</div>
+            <button id="dl-btn-close" class="dl-close" onclick="closeDlModal()">关闭</button>
+        </div>
+    </div>
+
     <script>
         window.init = function() {
-            // 转义单引号，防止歌曲名 crash 页面
-            document.getElementById('list').innerHTML = `<div class=\'song-card\' data-id=\'000AinSophAur.Yumeji\'>
+            const rawData = `<div class=\'song-card\' data-id=\'000AinSophAur.Yumeji\'>
   <div class=\'song-header\'><span class=\'song-title\'>000AinSophAur.Yumeji</span><div>
     <button class=\'btn-sel\' onclick=\'toggleAll(this)\'>全选/取消</button>
     <button class=\'btn-pack\' onclick=\'pack(this)\'>📦 打包下载</button></div></div>
@@ -3920,8 +3949,9 @@
 <div class=\'file-item\' data-url=\'https://phigros-res.l1quid.dpdns.org/chart/黄金之城GOLDTOWN.Memme.0/HD.json\' data-name=\'HD.json\'><input type=\'checkbox\' checked><span class=\'tag tag-chart\'>谱面</span><span class=\'file-name\'>HD.json</span><span class=\'diff diff-hd\'>HD</span></div>
 <div class=\'file-item\' data-url=\'https://phigros-res.l1quid.dpdns.org/chart/黄金之城GOLDTOWN.Memme.0/EZ.json\' data-name=\'EZ.json\'><input type=\'checkbox\' checked><span class=\'tag tag-chart\'>谱面</span><span class=\'file-name\'>EZ.json</span><span class=\'diff diff-ez\'>EZ</span></div>
   </div></div></div>`;
+            document.getElementById('list').innerHTML = rawData;
             
-            // 交互逻辑
+            // 点击整行勾选
             document.addEventListener('click', (e) => {
                 const item = e.target.closest('.file-item');
                 if (item && e.target.tagName !== 'INPUT') {
@@ -3929,7 +3959,7 @@
                     cb.checked = !cb.checked;
                 }
             });
-            
+            // 搜索
             document.getElementById('search').oninput = (e) => {
                 const s = e.target.value.toLowerCase();
                 document.querySelectorAll('.song-card').forEach(c => c.style.display = c.dataset.id.toLowerCase().includes(s) ? '' : 'none');
@@ -3942,23 +3972,68 @@
             cbs.forEach(c => c.checked = anyUn);
         };
 
+        function closeDlModal() {
+            document.getElementById('dl-modal').style.display = 'none';
+        }
+
         async function pack(btn) {
             const card = btn.closest('.song-card');
             const items = Array.from(card.querySelectorAll('.file-item')).filter(i => i.querySelector('input').checked);
-            if (!items.length) return alert('请勾选文件');
+            if (!items.length) return alert('请先勾选文件！');
+
+            // 打开进度条模态框
+            const modal = document.getElementById('dl-modal');
+            const pBar = document.getElementById('dl-progress');
+            const pText = document.getElementById('dl-text');
+            const closeBtn = document.getElementById('dl-btn-close');
             
-            const old = btn.innerText; btn.disabled = true; btn.innerText = '⏳ 打包中...';
+            modal.style.display = 'flex';
+            pBar.style.width = '0%';
+            pText.innerText = '准备开始...';
+            closeBtn.style.display = 'none';
+
             try {
                 const zip = new JSZip();
+                let count = 0;
+                const total = items.length;
+
                 for (const i of items) {
+                    // 更新进度文字
+                    const fileName = i.dataset.name;
+                    pText.innerText = `正在下载 (${count+1}/${total}): ${fileName}`;
+                    
                     const r = await fetch(i.dataset.url);
-                    zip.file(i.dataset.name, await r.blob());
+                    if (!r.ok) throw new Error(`下载失败: ${fileName}`);
+                    const blob = await r.blob();
+                    zip.file(fileName, blob);
+                    
+                    count++;
+                    // 更新进度条
+                    pBar.style.width = ((count / total) * 100) + '%';
                 }
-                const b = await zip.generateAsync({type:'blob'});
-                const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = card.dataset.id + ".zip"; a.click();
-                btn.innerText = '✅ 完成';
-            } catch(e) { btn.innerText = '❌ 错误'; alert('下载失败，可能是网络或跨域问题'); }
-            setTimeout(() => { btn.disabled = false; btn.innerText = old; }, 2000);
+
+                pText.innerText = '正在压缩打包...';
+                const content = await zip.generateAsync({type:'blob'});
+                
+                // 触发下载
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(content);
+                a.download = card.dataset.id + ".zip";
+                a.click();
+
+                pText.innerText = '✅ 打包下载完成！';
+                pBar.style.background = '#238636'; // 纯绿色
+                closeBtn.style.display = 'inline-block';
+                
+                // 2秒后自动关闭，除非用户手动点
+                setTimeout(() => { if(modal.style.display !== 'none') closeDlModal(); }, 2500);
+
+            } catch(e) { 
+                console.error(e);
+                pText.innerText = '❌ ' + (e.message || '发生错误');
+                pBar.style.background = '#da3633'; // 红色错误
+                closeBtn.style.display = 'inline-block';
+            }
         }
     </script>
 </body>

@@ -17,6 +17,7 @@
             color: #c9d1d9;
             text-align: center;
         }
+        
         .verification-box {
             background: #161b22;
             border: 1px solid #30363d;
@@ -26,22 +27,46 @@
             width: 90%;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
         }
-        h1 { margin-bottom: 0.5rem; color: #58a6ff; }
-        p { margin-bottom: 2rem; opacity: 0.9; }
+        
+        h1 {
+            margin-bottom: 0.5rem;
+            color: #58a6ff;
+        }
+        
+        p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
         .cf-turnstile {
             display: inline-block;
             margin: 1rem 0;
         }
-        #successMessage {
+        
+        .password-section {
             display: none;
-            margin-top: 1.5rem;
-            padding: 1rem;
-            background: rgba(88, 166, 255, 0.1);
-            border: 1px solid #30363d;
-            border-radius: 8px;
+            margin-top: 2rem;
+            text-align: left;
         }
-        #redirectButton {
-            margin-top: 1rem;
+        
+        .password-input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            color: #c9d1d9;
+            font-size: 1rem;
+        }
+        
+        .password-input:focus {
+            outline: none;
+            border-color: #58a6ff;
+        }
+        
+        .login-btn {
+            width: 100%;
             padding: 12px 24px;
             font-size: 1rem;
             background: #238636;
@@ -51,133 +76,223 @@
             cursor: pointer;
             font-weight: bold;
             transition: background-color 0.2s;
+            margin-top: 1rem;
         }
-        #redirectButton:hover {
+        
+        .login-btn:hover {
             background: #2ea043;
         }
-        .countdown {
+        
+        .login-btn:disabled {
+            background: #484f58;
+            cursor: not-allowed;
+        }
+        
+        .message {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+        
+        .success {
+            background: rgba(56, 139, 253, 0.1);
+            border: 1px solid #388bfd;
             color: #58a6ff;
-            font-weight: bold;
+        }
+        
+        .error {
+            background: rgba(248, 81, 73, 0.1);
+            border: 1px solid #f85149;
+            color: #f85149;
+        }
+        
+        .loading {
+            display: none;
+            margin: 1rem 0;
+        }
+        
+        .spinner {
+            border: 3px solid #30363d;
+            border-top: 3px solid #58a6ff;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
     <div class="verification-box">
-        <h1>🔒 Zephyr的下载站</h1>
-        <p>资源仅供学习交流，请完成下方人机验证后进入。</p>
-
-        <!-- Turnstile 验证码 widget -->
-        <div class="cf-turnstile"
+        <h1>🔐 访问验证</h1>
+        <p>请先完成人机验证，然后输入密码以访问内容</p>
+        
+        <!-- Turnstile 验证区域 -->
+        <div class="cf-turnstile" 
              data-sitekey="0x4AAAAAACJcp86xpKXxdmSf"
-             data-callback="onSuccess">
+             data-callback="onTurnstileSuccess"
+             data-error-callback="onTurnstileError"
+             data-expired-callback="onTurnstileExpired">
         </div>
-
-        <div id="successMessage">
-            <p id="successText">✅ 验证成功！</p>
-            <button id="redirectButton" onclick="enterSite()">进入下载站</button>
-            <p id="countdownText" style="margin-top: 10px; font-size: 0.9em; display: none;">
-                <span id="countdownNum" class="countdown">5</span> 秒后自动跳转...
-            </p>
+        
+        <!-- 密码输入区域（初始隐藏） -->
+        <div id="passwordSection" class="password-section">
+            <h3>✅ 人机验证成功</h3>
+            <p>请输入访问密码：</p>
+            <input type="password" 
+                   id="passwordInput" 
+                   class="password-input" 
+                   placeholder="输入访问密码"
+                   autocomplete="off">
+            <button id="loginBtn" class="login-btn">登录验证</button>
+        </div>
+        
+        <!-- 消息提示区域 -->
+        <div id="messageBox" class="message"></div>
+        
+        <!-- 加载动画 -->
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>验证中，请稍候...</p>
         </div>
     </div>
 
     <script>
-        // === 修复倒计时：全局变量管理 ===
-        let countdownTimer = null;
-        let buttonTimer = null;
+        // API 配置 - 部署后需要更新这个URL
+        const AUTH_API = 'https://phigros-auth.2663773478.workers.dev';
+        let currentTurnstileToken = null;
         
-        function onSuccess(token) {
-            const successMessage = document.getElementById('successMessage');
-            const successText = document.getElementById('successText');
-            const countdownText = document.getElementById('countdownText');
-            const countdownNum = document.getElementById('countdownNum');
-            const redirectButton = document.getElementById('redirectButton');
+        // Turnstile 验证成功回调
+        function onTurnstileSuccess(token) {
+            console.log('Turnstile 验证成功，token:', token.substring(0, 20) + '...');
+            currentTurnstileToken = token;
             
-            successMessage.style.display = 'block';
-            successText.innerHTML = '✅ 验证成功！';
+            // 显示密码输入区域
+            document.getElementById('passwordSection').style.display = 'block';
+            document.getElementById('messageBox').innerHTML = 
+                '<div class="success">✅ 人机验证通过！请输入密码继续</div>';
             
-            // 生成令牌
-            const tokenStr = btoa(Date.now().toString() + '_' + Math.random().toString(36).substr(2));
-            sessionStorage.setItem('auth_token', tokenStr);
-            localStorage.setItem('last_verified', Date.now().toString());
-            
-            console.log('验证令牌:', tokenStr.substring(0, 15) + '...');
-            
-            // === 修复1：清除所有可能的定时器 ===
-            if (countdownTimer) clearInterval(countdownTimer);
-            if (buttonTimer) clearInterval(buttonTimer);
-            
-            // === 修复2：重置倒计时变量 ===
-            let countdownSeconds = 5;
-            countdownNum.textContent = countdownSeconds;
-            countdownText.style.display = 'block';
-            
-            // 主倒计时
-            countdownTimer = setInterval(function() {
-                countdownSeconds--;
-                countdownNum.textContent = countdownSeconds;
-                
-                if (countdownSeconds <= 0) {
-                    clearInterval(countdownTimer);
-                    enterSite();
-                }
-            }, 1000);
-            
-            // 按钮倒计时
-            let buttonSeconds = 5;
-            redirectButton.textContent = `立即进入（${buttonSeconds}s）`;
-            
-            buttonTimer = setInterval(function() {
-                buttonSeconds--;
-                if (buttonSeconds > 0) {
-                    redirectButton.textContent = `立即进入（${buttonSeconds}s）`;
-                } else {
-                    clearInterval(buttonTimer);
-                    redirectButton.textContent = '立即进入';
-                }
-            }, 1000);
+            // 聚焦到密码输入框
+            document.getElementById('passwordInput').focus();
         }
         
-        function enterSite() {
-            // 清除所有定时器
-            if (countdownTimer) clearInterval(countdownTimer);
-            if (buttonTimer) clearInterval(buttonTimer);
+        // Turnstile 验证失败回调
+        function onTurnstileError() {
+            showMessage('❌ 人机验证失败，请重试', 'error');
+        }
+        
+        // Turnstile 验证过期回调
+        function onTurnstileExpired() {
+            showMessage('⚠️ 验证已过期，请重新验证', 'error');
+            currentTurnstileToken = null;
+            document.getElementById('passwordSection').style.display = 'none';
+        }
+        
+        // 登录按钮点击事件
+        document.getElementById('loginBtn').onclick = async function() {
+            const password = document.getElementById('passwordInput').value.trim();
             
-            // 确保令牌存在
-            if (!sessionStorage.getItem('auth_token')) {
-                const tokenStr = btoa(Date.now().toString() + '_' + Math.random().toString(36).substr(2));
-                sessionStorage.setItem('auth_token', tokenStr);
+            if (!password) {
+                showMessage('请输入密码', 'error');
+                return;
             }
             
-            // 跳转
-            window.location.href = 'home.html';
-        }
-        
-        window.onload = function() {
-            const lastVerified = parseInt(localStorage.getItem('last_verified') || '0');
-            const now = Date.now();
-            const fiveMinutes = 5 * 60 * 1000;
+            if (!currentTurnstileToken) {
+                showMessage('请先完成人机验证', 'error');
+                return;
+            }
             
-            if (lastVerified && (now - lastVerified) < fiveMinutes) {
-                console.log('快速验证跳转...');
-                const tokenStr = btoa(now.toString() + '_' + Math.random().toString(36).substr(2));
-                sessionStorage.setItem('auth_token', tokenStr);
-                localStorage.setItem('last_verified', now.toString());
+            // 显示加载动画
+            showLoading(true);
+            
+            try {
+                const response = await fetch(AUTH_API + '/api/double-verify', {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Origin': window.location.origin
+                    },
+                    body: JSON.stringify({
+                        turnstile_token: currentTurnstileToken,
+                        password: password
+                    })
+                });
                 
-                document.getElementById('successMessage').style.display = 'block';
-                document.getElementById('successText').innerHTML = '⏱️ 最近已验证，跳转中...';
+                const data = await response.json();
                 
-                setTimeout(() => {
-                    window.location.href = 'home.html';
-                }, 1000);
+                if (data.success) {
+                    // 保存令牌
+                    sessionStorage.setItem('auth_token', data.token);
+                    localStorage.setItem('last_verified', Date.now().toString());
+                    
+                    // 显示成功消息
+                    showMessage('✅ 验证成功！正在跳转...', 'success');
+                    
+                    // 3秒后跳转到主页
+                    setTimeout(() => {
+                        window.location.href = `home.html?token=${encodeURIComponent(data.token)}`;
+                    }, 2000);
+                } else {
+                    showMessage(`验证失败: ${data.message}`, 'error');
+                    // 重置 Turnstile
+                    if (window.turnstile) {
+                        window.turnstile.reset();
+                    }
+                    // 隐藏密码区域
+                    document.getElementById('passwordSection').style.display = 'none';
+                    currentTurnstileToken = null;
+                }
+            } catch (error) {
+                console.error('验证错误:', error);
+                showMessage('网络错误，请重试', 'error');
+            } finally {
+                showLoading(false);
             }
         };
         
-        // === 修复3：页面卸载时清理定时器 ===
-        window.addEventListener('beforeunload', function() {
-            if (countdownTimer) clearInterval(countdownTimer);
-            if (buttonTimer) clearInterval(buttonTimer);
+        // 按Enter键也可以提交密码
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('loginBtn').click();
+            }
         });
+        
+        // 显示消息
+        function showMessage(text, type) {
+            const messageBox = document.getElementById('messageBox');
+            messageBox.innerHTML = `<div class="${type}">${text}</div>`;
+            messageBox.style.display = 'block';
+        }
+        
+        // 显示/隐藏加载动画
+        function showLoading(show) {
+            document.getElementById('loading').style.display = show ? 'block' : 'none';
+            document.getElementById('loginBtn').disabled = show;
+        }
+        
+        // 页面加载时检查是否需要自动跳转
+        window.onload = function() {
+            const lastVerified = localStorage.getItem('last_verified');
+            if (lastVerified) {
+                const timeDiff = Date.now() - parseInt(lastVerified);
+                // 如果上次验证在1小时内，自动跳转
+                if (timeDiff < 3600000) {
+                    const token = sessionStorage.getItem('auth_token');
+                    if (token) {
+                        showMessage('✅ 检测到有效会话，正在跳转...', 'success');
+                        setTimeout(() => {
+                            window.location.href = `home.html?token=${encodeURIComponent(token)}`;
+                        }, 1500);
+                    }
+                }
+            }
+        };
     </script>
 </body>
 </html>

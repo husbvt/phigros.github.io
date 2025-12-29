@@ -164,7 +164,7 @@
     </div>
 
     <script>
-        // API 配置 - 部署后需要更新这个URL
+        // API 配置
         const AUTH_API = 'https://phigros-auth.2663773478.workers.dev';
         let currentTurnstileToken = null;
         
@@ -236,7 +236,8 @@
                     
                     // 3秒后跳转到主页
                     setTimeout(() => {
-                        window.location.href = `home.html?token=${encodeURIComponent(data.token)}`;
+                        // 注意：这里跳转到 /phigros.github.io/home.html
+                        window.location.href = `/phigros.github.io/home.html?token=${encodeURIComponent(data.token)}`;
                     }, 2000);
                 } else {
                     showMessage(`验证失败: ${data.message}`, 'error');
@@ -287,7 +288,7 @@
                     if (token) {
                         showMessage('✅ 检测到有效会话，正在跳转...', 'success');
                         setTimeout(() => {
-                            window.location.href = `home.html?token=${encodeURIComponent(token)}`;
+                            window.location.href = `/phigros.github.io/home.html?token=${encodeURIComponent(token)}`;
                         }, 1500);
                     }
                 }
